@@ -1,0 +1,1 @@
+Use this directory to hold data such as metadata tables.
