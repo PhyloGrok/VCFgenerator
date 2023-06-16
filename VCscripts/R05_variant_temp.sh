@@ -1,6 +1,9 @@
 #!/bin/bash
 #LloydJonesIII
 
+## user input 
+read -p "Please name your Project" pname
+read -p "Please enter the project ID you are researching" project
 #### VCF generation Loop 
 
 for infile in ../../media/volume/sdb/$pname/fastq/*_1.fastq.gz 
