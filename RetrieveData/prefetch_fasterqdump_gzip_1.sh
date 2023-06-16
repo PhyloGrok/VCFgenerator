@@ -26,5 +26,5 @@ fasterq-dump --outdir ../../media/volume/sdb/sra/$pname/fastq/ ../../media/volum
 
 ## gzip all fastq files that were collected 
 
-gzip gzip ../../media/volume/sdb/sra/$pname/fastq/*.fastq*.fastq
+gzip ../../media/volume/sdb/sra/$pname/fastq/*.fastq
 #reduces storage cost of all collected fastq files by making them zip files 
