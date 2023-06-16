@@ -8,7 +8,7 @@ read -p "Please enter the project ID you are researching, please use same name a
 ## Trimmomatic Loop 
 for infile in ../../media/volume/sdb/$pname/fastq/*_1.fastq.gz 
 do 
-base=$(basename ${infile} _1.fastq.gz) \ 
+base=$(basename ${infile} _1.fastq.gz)  
 trimmomatic PE ../../media/volume/sdb/$pname/fastq/${infile} ../../media/volume/sdb/$pname/fastq/${base}_2.fastq.gz \
 ../../media/volume/sdb/$pname/fastq/trimmed/${base}_1.trim.fastq.gz ../../media/volume/sdb/$pname/fastq/untrimmed/${base}_1.untrim.fastq.gz \
 ../../media/volume/sdb/$pname/fastq/trimmed/${base}_2.trim.fastq.gz ../../media/volume/sdb/$pname/fastq/untrimmed/${base}_2.untrim.fastq.gz \
