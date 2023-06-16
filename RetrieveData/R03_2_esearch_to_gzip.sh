@@ -3,8 +3,8 @@
 
 
 ## user input 
-read -p "Please name your Project" pname
-read -p "Please enter the project ID you are researching" project
+read -p "Please name your Project: " pname
+read -p "Please enter the project ID you are researching: " project
 
 
 ## Make Directories 
