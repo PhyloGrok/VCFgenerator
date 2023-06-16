@@ -2,8 +2,8 @@
 #LloydJonesIII
 
 ## user input 
-read -p "Please name your Project, please use same name as search shell" pname
-read -p "Please enter the project ID you are researching, please use same name as search shell" project
+read -p "Please name your Project, please use same name as search shell: " pname
+read -p "Please enter the project ID you are researching, please use same name as search shell: " project
 
 ## Trimmomatic Loop 
 for infile in ../../media/volume/sdb/$pname/fastq/*_1.fastq.gz 
