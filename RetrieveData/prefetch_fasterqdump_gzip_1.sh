@@ -12,7 +12,6 @@ mkdir ../../media/volume/sdb/sra/$pname/fastq/SAM
 mkdir ../../media/volume/sdb/sra/$pname/fastq/BAM
 mkdir ../../media/volume/sdb/sra/$pname/fastq/BCF
 mkdir ../../media/volume/sdb/sra/$pname/fastq/VCF
-mkdir ../../media/volume/sdb/sra/$pname/ref_genome
 
 ## NIH API Websearch
 esearch -db sra -query "PRJNA541441" | efetch -format docsum | xtract -pattern Runs -ACC @acc  -element "&ACC" > ../../media/volume/sdb/sra/$pname/$pname.txt
