@@ -6,7 +6,7 @@ do
 base=$(basename ${infile} _1.fastq.gz)  
 
 #Create aligned sam files 
-bwa mem ../../media/volume/sdb/$1/assembly/ref_genome.fasta ../../media/volume/sdb/$1/fastq/${base}_1.trim.fastq.gz \
+bwa mem ../../media/volume/sdb/$1/assembly/ref_genome.fa ../../media/volume/sdb/$1/fastq/${base}_1.trim.fastq.gz \
 ../../media/volume/sdb/$1/fastq/${base}_2.trim.fastq.gz > ../../media/volume/sdb/$1/assembly/results/SAM/${base}.aligned.sam
 
 #Creating and sorting BAM Files 
