@@ -27,7 +27,7 @@ datasets download genome taxon $3 --reference --include genome,rna,protein,cds,g
 
 gunzip ${3}complete.zip
 
-mv ../../media/volume/sdb/$1/assembly/${3}complete/ncbi_dataset/data/GCF*/GCF*.fna ../../media/volume/sdb/$1/assembly/ref_genome
+mv ../../media/volume/sdb/$1/assembly/${3}complete/ncbi_dataset/data/GCF*/GCF*.fna ../../media/volume/sdb/$1/assembly/ref_genome.fa
 
 ## Grab metadata using the esearch list 
 prefetch --option-file ../../media/volume/sdb/$1/${1}.txt -O ../../media/volume/sdb/$1/sra/
