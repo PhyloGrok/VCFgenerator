@@ -9,3 +9,7 @@ esearch -db genome -query "txid70863" | efetch -format docsum | xtract -pattern 
 
 ## use an assembly accession ID to download a genomic fasta
 esearch -db assembly -query GCA_000146165.2 | elink -target nucleotide -name assembly_nuccore_refseq | efetch -format fasta > GCA_000146165.2.fa
+
+
+## Now split the multifasta into individual files (in necessary)
+awk 'BEGIN{RS=">";FS="\n"} NR>1{fnme=$1".fasta"; print ">" $0 > fnme; close(fnme);}' txid22.fasta
