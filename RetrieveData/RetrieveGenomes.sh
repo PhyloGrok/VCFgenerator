@@ -12,4 +12,6 @@ esearch -db assembly -query GCA_000146165.2 | elink -target nucleotide -name ass
 
 
 ## Now split the multifasta into individual files (in necessary)
+##https://www.biostars.org/p/13270/
+##https://stackoverflow.com/questions/21476033/splitting-a-multiple-fasta-file-into-separate-files-keeping-their-original-names
 awk 'BEGIN{RS=">";FS="\n"} NR>1{fnme=$1".fasta"; print ">" $0 > fnme; close(fnme);}' txid22.fasta
