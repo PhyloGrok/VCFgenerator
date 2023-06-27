@@ -23,6 +23,6 @@ datasets download genome taxon $3 --reference --include genome,rna,protein,cds,g
 prefetch --option-file ../../media/volume/sdb/$1/${1}.txt -O ../../media/volume/sdb/$1/sra/
 fasterq-dump --outdir ../../media/volume/sdb/$1/fastq ../../media/volume/sdb/$1/sra/SRR*
 ## Data Processing
-gunzip ${3}.zip
+unzip ${3}.zip
 gzip ../../media/volume/sdb/$1/fastq/*.fastq
 mv ../../media/volume/sdb/$1/assembly/${3}/GCF*.fna ../../media/volume/sdb/$1/assembly/ref_genome
