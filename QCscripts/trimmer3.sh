@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 #LloydJonesIII
 trimmomatic PE ../../media/volume/sdb/$1/fastq/${2}_1.fastq.gz ../../media/volume/sdb/$1/fastq/${2}_2.fastq.gz \
 ../../media/volume/sdb/$1/fastq/trimmed/${2}_1.trim.fastq.gz ../../media/volume/sdb/$1/fastq/untrimmed/${2}_1.untrim.fastq.gz \
