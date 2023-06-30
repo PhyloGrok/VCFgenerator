@@ -61,7 +61,9 @@ snpEff build -Xmx4g  -noCheckCds -noCheckProtein -gtf22 -c resources/Snp
 Eff/snpEff.config  -v Hs1asm
 ```
 ### 4. Run the annotation
+- For now, we run annotation without optional parameters
 ```
 snpEff ann -c resources/SnpEff/snpEff.config  Hs1asm Hs1asm/pH_exp_vcfs/
 SRR9025102_final_variants.vcf > resources/SRR9025102_final_variants_annotated.vcf
 ```
+- To see the optional parameters, run `snpEff ann`
