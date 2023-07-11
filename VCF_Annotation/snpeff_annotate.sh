@@ -52,5 +52,5 @@ for vcf_file in "$vcf_dir"*_final_variants.vcf; do
   # Extract file name without extension
   file_name=$(basename "$vcf_file" _final_variants.vcf)
   # Run snpEff annotation command
- snpEff ann -c resources/SnpEff/snpEff.config $database $vcf_file > $output_dir${file_name}_final_variants_annotated.vcf
+ snpEff ann -c resources/SnpEff/snpEff.config $database $vcf_file > $output_dir${file_name}_final_variants_annotated.vcf -s ${file_name}_summary.html -csvStats ${filename}_annotated.csv
 done
