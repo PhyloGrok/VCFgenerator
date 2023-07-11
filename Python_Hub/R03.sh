@@ -12,6 +12,7 @@ mkdir ../../media/volume/sdb/$1/fastq
 mkdir ../../media/volume/sdb/$1/fastq/untrimmed
 mkdir ../../media/volume/sdb/$1/fastq/trimmed
 mkdir ../../media/volume/sdb/$1/assembly
+mkdir ../../media/volume/sdb/$1/assembly/reference
 mkdir ../../media/volume/sdb/$1/assembly/results
 mkdir ../../media/volume/sdb/$1/assembly/results/sam
 mkdir ../../media/volume/sdb/$1/assembly/results/bam
@@ -23,8 +24,8 @@ datasets download genome taxon $3 --reference --include genome,rna,protein,cds,g
 prefetch --option-file ../../media/volume/sdb/$1/${1}.txt -O ../../media/volume/sdb/$1/sra/
 fasterq-dump --outdir ../../media/volume/sdb/$1/fastq ../../media/volume/sdb/$1/sra/SRR*
 ## Data Processing
-unzip ${3}.zip
+unzip ../../media/volume/sdb/$1/assembly/${3}.zip -d ../../media/volume/sdb/$1/assembly/reference
 echo 'Gzip process has begun'
 gzip ../../media/volume/sdb/$1/fastq/*.fastq
 echo 'All files have benn Gzipped'
-mv ../../media/volume/sdb/$1/assembly/${3}/GCF*.fna ../../media/volume/sdb/$1/assembly/ref_genome
+mv ../../media/volume/sdb/$1/assembly/reference/ncbi_dataset/data/GCF*/GCF*.fna ../../media/volume/sdb/$1/assembly/reference/ref_genome
