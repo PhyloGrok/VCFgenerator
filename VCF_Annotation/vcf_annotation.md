@@ -68,7 +68,7 @@ snpEff ann -c resources/SnpEff/snpEff.config  Hs91-R6 Hs91-R6/pH_exp_vcfs/SRR902
 ```
 - Specify more output files
 ```
-snpEff ann -c resources/SnpEff/snpEff.config  Hs91-R6 Hs91-R6/pH_exp_vcfs/SRR9025102_final_variants.vcf > resources/SRR9025102_final_variants_annotated.vcf -s SRR9025102_summary.html -csvStats SRR9025102_annotated.csv
+snpEff ann -c resources/SnpEff/snpEff.config  Hs91-R6 Hs91-R6/pH_exp_vcfs/SRR9025102_final_variants.vcf > resources/SRR9025102_final_variants_annotated.vcf -s resources/SRR9025102_summary.html -csvStats resources/SRR9025102_annotated.csv
 ```
 
 - To see the optional parameters, run `snpEff ann`
