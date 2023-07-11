@@ -62,7 +62,76 @@ snpEff build -Xmx4g  -noCheckCds -noCheckProtein -gtf22 -c resources/SnpEff/snpE
 ```
 ### 4. Run the annotation
 - For now, we run annotation without optional parameters
+#### Run with a single file:
 ```
 snpEff ann -c resources/SnpEff/snpEff.config  Hs91-R6 Hs91-R6/pH_exp_vcfs/SRR9025102_final_variants.vcf > resources/SRR9025102_final_variants_annotated.vcf
 ```
 - To see the optional parameters, run `snpEff ann`
+#### Run with multiple files:
+- Make a bash script to run a for loop: `nano resouces/snpeff_annotate.sh`
+```
+#!/bin/bash
+
+# Parse command-line options
+
+while getopts ":d:i:o:" opt; do
+
+  case $opt in
+    d)
+      database=$OPTARG
+      ;;
+    i)
+      vcf_dir=$OPTARG
+      ;;
+    o)
+      output_dir=$OPTARG
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument." >&2
+      exit 1
+      ;;
+  esac
+done
+
+if [ -z "$database" ]; then
+  echo "Error: Option -d requires an argument."
+  exit 1
+fi
+
+if [ -z "$vcf_dir" ]; then
+  echo "Error: Option -i requires an argument."
+  exit 1
+fi
+
+if [ -z "$output_dir" ]; then
+  echo "Error: Option -o requires an argument."
+  exit 1
+fi
+
+shift $((OPTIND -1))
+
+# Loop through VCF files
+
+for vcf_file in "$vcf_dir"*_final_variants.vcf; do
+
+  # Extract file name without extension
+
+  file_name=$(basename "$vcf_file" _final_variants.vcf)
+
+  # Run snpEff annotation command
+ snpEff ann -c resources/SnpEff/snpEff.config $database $vcf_file > $output_dir${file_name}_annotated.vcf
+
+done
+```
+- The command from the script takes 3 argument:
+  - `-d`: the database
+  - `-i`: the input folder containing the files
+  - `-o`: the output folder
+``` 
+./resources/snpeff_annotate.sh -d Hs91-R6 -i Hs91-R6/pH_exp_vcfs/ -o resources/
+```
+- The output files should be located in the `resouces/` under {variant}_annotated.vcf
