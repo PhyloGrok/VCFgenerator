@@ -1,5 +1,5 @@
 #!/bin/bash
-#JanGina
+#JanGina (Critic-ism and ginaah) 
 
 #Unzip .gz files
 
