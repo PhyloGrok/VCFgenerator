@@ -66,6 +66,11 @@ snpEff build -Xmx4g  -noCheckCds -noCheckProtein -gtf22 -c resources/SnpEff/snpE
 ```
 snpEff ann -c resources/SnpEff/snpEff.config  Hs91-R6 Hs91-R6/pH_exp_vcfs/SRR9025102_final_variants.vcf > resources/SRR9025102_final_variants_annotated.vcf
 ```
+- Specify more output files
+```
+snpEff ann -c resources/SnpEff/snpEff.config  Hs91-R6 Hs91-R6/pH_exp_vcfs/SRR9025102_final_variants.vcf > resources/SRR9025102_final_variants_annotated.vcf -s SRR9025102_summary.html -csvStats SRR9025102_annotated.csv
+```
+
 - To see the optional parameters, run `snpEff ann`
 #### Run with multiple files:
 - Make a bash script to run a for loop: see `snpeff_annotate.sh` 
