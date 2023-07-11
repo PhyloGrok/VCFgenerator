@@ -3,9 +3,9 @@
 import subprocess 
 import numpy as np
 # user inputs 
-user1 = input('Please enter the name of your project, no spaces or special characters allowed:    ')
-user2 = input('Please enter the Project ID you are using for data:    ')
-user3 = input('Please input your reference genomes taxon id, numbers only no spaces:    ')
+user1 = input('Please enter a name for your project (no spaces or special characters):    ')
+user2 = input('Please enter the NCBI BioProject ID you want to analyze (starts with PRJNA):    ')
+user3 = input('Please input the NCBI taxon id for your reference genome, (will be an integer number):    ')
 ulist = [user1,user2,user3]
 # Save user inputs as a writen text file 
 inputs = open(f"inputs.txt", "w")
