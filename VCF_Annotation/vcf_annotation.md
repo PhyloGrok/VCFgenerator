@@ -26,18 +26,18 @@ cp $SNPEFFDIR/snpEff.config  resources/SnpEff/
 ```
 echo "                    
 
-# Halobact_NRC-1 genome, HsNRC-1
+# Halobact_91-R6 genome, Hs91-R6
 
-Hs1asm.genome : Halobact_NRC-1
+Hs91-R6.genome : Halobact_91-R6
 
 " >> resources/SnpEff/snpEff.config
 ```
 - Essentially, the most important part is the prefix for `.genome`. The prefix `Hs1asm` has to be the same with the name of the folder that contains our genome info for the next steps
 ```
-mkdir -p resources/SnpEff/data/Hs1asm
+mkdir -p resources/SnpEff/data/Hs91-R6
 ```
 #### Put the necessary files into the genome folder (ref as database)
-- Here, we have a folder called `Hs1asm/` in the user home (not to confuse with the folder within `resources/`)
+- Here, we have a folder called `Hs91-R6/` in the user home (not to confuse with the folder within `resources/`)
 - This folder contains all the ref genome info from NCBI. We need the genome sequence `.fna`, the `.gtf`, and the protein `.faa`
 - Per the snpEff documentation, these ref info have to be renamed as such:
   - Ref genome sequence: `sequences.fa`
@@ -45,25 +45,24 @@ mkdir -p resources/SnpEff/data/Hs1asm
   - Protein info: `protein.fa`
 - Thus, when we copy the files, we also attempt to rename them according to the doc
 ```
-cp Hs1asm/GCF_004799605.1_ASM479960v1_genomic.fna resources/SnpEff/data/
+cp Hs91-R6/GCF_004799605.1_ASM479960v1_genomic.fna resources/SnpEff/data/
 sequences.fa
-cp Hs1asm/genomic.gtf resources/SnpEff/data/genes.gtf
-cp Hs1asm/protein.faa resources/SnpEff/data/protein.fa
+cp Hs91-R6/genomic.gtf resources/SnpEff/data/genes.gtf
+cp Hs91-R6/protein.faa resources/SnpEff/data/protein.fa
+cp Hs91-R6/genomic.gff resources/SnpEff/data/genes.gff
 ```
-- Move the files into the ref-genome database folder `Hs1asm/`
+- Move the files into the ref-genome database folder `Hs91-R6/`
 ```
-mv resources/SnpEff/data/{sequences.fa,genes.gtf,protein.fa} resources/SnpEff/data/Hs1asm/
+mv resources/SnpEff/data/{sequences.fa,genes.gtf,protein.fa} resources/SnpEff/data/Hs91-R6/
 ```
 #### Build the database
-- Note: run this command at user home, make sure there are 3 files inside the `resources/SnpEff/data/Hs1asm/`
+- Note: run this command at user home, make sure there are 3 files inside the `resources/SnpEff/data/Hs91-R6/`
 ```
-snpEff build -Xmx4g  -noCheckCds -noCheckProtein -gtf22 -c resources/Snp
-Eff/snpEff.config  -v Hs1asm
+snpEff build -Xmx4g  -noCheckCds -noCheckProtein -gtf22 -c resources/SnpEff/snpEff.config  -v Hs91-R6
 ```
 ### 4. Run the annotation
 - For now, we run annotation without optional parameters
 ```
-snpEff ann -c resources/SnpEff/snpEff.config  Hs1asm Hs1asm/pH_exp_vcfs/
-SRR9025102_final_variants.vcf > resources/SRR9025102_final_variants_annotated.vcf
+snpEff ann -c resources/SnpEff/snpEff.config  Hs91-R6 Hs91-R6/pH_exp_vcfs/SRR9025102_final_variants.vcf > resources/SRR9025102_final_variants_annotated.vcf
 ```
 - To see the optional parameters, run `snpEff ann`
