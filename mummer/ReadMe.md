@@ -6,8 +6,9 @@ Demo: Mummer dotplots with Shewanella oneidensis MR-1 vs all other species withi
 1. <b>Retrieve a list of genomes assembly accessions from Genus Shewanella</b>, and filter them for "Complete RefSeq" status.  This has been a little difficult because the same species genome assemblies are duplicated in the database.  (accession GCF_* denotes RefSeq and GCA_* denotes GenBank, but with the same assembly number).  *One pending task here is add a step to retrieve and filter these assembly results for RefSeq genomes.  This can be done manually through the NCBI datasets website by selecting Shewanella genus, filtering for "Reference Genomes", "Annotated Genomes", and "Complete-level", then downloading the .tsv file.  (See ncbi_dataset in the mummer directory)
 
 2. (EDirectAssemblyGet.sh)  <b>Using the Genome Accession list, download a set of query genomes.</b>  In this example, these are 33 individual genome assemblies from species of Shwanella.
-  
-3. Run mummer4 using a single Reference Genome, looping through all the RefSeq query genomes generated in the previous step.
+  2A. Unzip the .fna.gz files and rename them .fasta
+   
+4. Run mummer4 using a single Reference Genome, looping through all the RefSeq query genomes generated in the previous step.
    
 5. Run mummerplot to generate a .png-format dotplot for each of the mummer4 runs.
 
