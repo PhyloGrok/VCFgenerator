@@ -2,6 +2,10 @@
 
 Demo: Mummer dotplots with Shewanella oneidensis MR-1 vs all other species within genus Shewanella that have Complete-quality RefSeq genomes.
 
+#### Workflow:
+1. Get a list of genomes from Genus Shewanella, and filter them for "Complete RefSeq" status.  This has been a little difficult because the same species genome assemblies are duplicated in the database.  (accession GCF_* denotes RefSeq and GCA_* denotes GenBank, but with the same assembly number) 
+
+#### Resources:
 1. Genus Shewanella NCBI Taxonomy browser page: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=22&lvl=3&lin=f&keep=1&srchmode=1&unlock
 2. NCBI Genome Dataset, filtered for RefSeq "Complete-level" genomes: https://www.ncbi.nlm.nih.gov/datasets/genome/?taxon=22&reference_only=true&assembly_level=3%3A3
 3. Mummer reference manual: https://mummer4.github.io/tutorial/tutorial.html
