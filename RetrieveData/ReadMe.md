@@ -13,7 +13,7 @@ For example, we find that trying to download a RefSeq genome assembly using taxo
   -Fasta files of the Protein sequences.
   -Fasta files of the coding RNA sequences.
 
-### 3. Download SRA datasets using NCBI SRA-toolkit/SRA-tools
+### 3. (R02.sh) Download SRA datasets using NCBI SRA-toolkit/SRA-tools
   -Currently we are focused primarily on genomic DNA variant calling from NextGen Illumina platform.
   -We will branch out eventually into RNA-seq and ChIP-seq data, and also NextGen long-read sequence from PacBio and Nanopore.
 
