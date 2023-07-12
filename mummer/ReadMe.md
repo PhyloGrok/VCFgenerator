@@ -7,7 +7,7 @@ Demo: Mummer dotplots with Shewanella oneidensis MR-1 vs all other species withi
 
 2. (EDirectAssemblyGet.sh)  <b>Using the Genome Accession list, download a set of query genomes.</b>  In this example, these are 33 individual genome assemblies from species of Shwanella.
    
-  2A. (UnzipRename.sh) Unzip the .fna.gz files and rename them .fasta
+   2A. (UnzipRename.sh) Unzip the .fna.gz files and rename them .fasta
   
 3. Run mummer4 using a single Reference Genome, looping through all the RefSeq query genomes generated in the previous step.
    
