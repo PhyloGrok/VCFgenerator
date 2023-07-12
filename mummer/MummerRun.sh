@@ -6,7 +6,7 @@
 
 for infile in ShewanellaAssemblies/*.fasta;
 do base=$(basename ${infile} .fasta);
-mummer -mum -b -c So_MR1.fasta $infile > ShewanellaAssemblies/${base}.mums
+mummer -l 25 -mumreference -b -c So_MR1.fasta $infile > ShewanellaAssemblies/${base}.mums
 done
 
 echo "Mummer complete."
