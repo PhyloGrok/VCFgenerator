@@ -17,7 +17,6 @@ echo "Mummer complete."
 for infile in ShewanellaAssemblies/*.mums;
         do base=$(basename ${infile} .mums);
         mummerplot -x "[0,5200000]" -y "[0,5200000]" -png -p mummer $infile;
-        base=$(basename ${infile} .mums);
                 mv mummer.png  $base.png;
 done
 
