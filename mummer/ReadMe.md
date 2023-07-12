@@ -9,9 +9,7 @@ Demo: Mummer dotplots with Shewanella oneidensis MR-1 vs all other species withi
    
    2A. (UnzipRename.sh) Unzip the .fna.gz files and rename them .fasta
   
-3. Run mummer4 using a single Reference Genome, looping through all the RefSeq query genomes generated in the previous step.
-   
-4. Run mummerplot to generate a .png-format dotplot for each of the mummer4 runs.
+3. (MummerRun.sh) Run mummer4 using a single Reference Genome, looping through all the RefSeq query genomes generated in the previous step, Run mummerplot to generate a .png-format dotplot for each of the mummer4 runs.
 
 #### Resources:
 1. Genus Shewanella NCBI Taxonomy browser page: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=22&lvl=3&lin=f&keep=1&srchmode=1&unlock
