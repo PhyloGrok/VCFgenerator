@@ -9,4 +9,4 @@ userfile.close()
 # Workflow shell scripts 
 search = subprocess.call(["bash","./R03.sh",all[0],all[1],all[2]]) ## Search Shell script
 split  = subprocess.call(["python","Split.py"]) ## text file splitting Shell script that runs trimmomatic 
-###variants = subprocess.call(["bash","variant2.py"]) ## Variant calling workflow loop
+variants = subprocess.call(["bash","variant6.py"]) ## Variant calling workflow loop
