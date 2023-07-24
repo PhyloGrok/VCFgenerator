@@ -25,40 +25,39 @@ cp $SNPEFFDIR/snpEff.config  resources/SnpEff/
 - Then we add the entry of the ref genome into the config file
 ```
 echo "                    
-
-# Halobact_91-R6 genome, Hs91-R6
-
-Hs91-R6.genome : Halobact_91-R6
-
+# Halobact_NRC-1 genome, HsNRC-1
+HsNRC-1.genome : Halobact_NRC-1
 " >> resources/SnpEff/snpEff.config
 ```
-- Essentially, the most important part is the prefix for `.genome`. The prefix `Hs1asm` has to be the same with the name of the folder that contains our genome info for the next steps
+- Essentially, the most important part is the prefix for `.genome`. The prefix `HsNRC-1` has to be the same with the name of the folder that contains our genome info for the next steps
 ```
-mkdir -p resources/SnpEff/data/Hs91-R6
+mkdir -p resources/SnpEff/data/HsNRC-1
 ```
 #### Put the necessary files into the genome folder (ref as database)
-- Here, we have a folder called `Hs91-R6/` in the user home (not to confuse with the folder within `resources/`)
-- This folder contains all the ref genome info from NCBI. We need the genome sequence `.fna`, the `.gtf`, and the protein `.faa`
+- Here, we have a folder called `HsNRC-1` in the user home (not to confuse with the folder within `resources/`)
+- This folder contains all the ref genome info from NCBI. We need the genome sequence `.fna`, the `.gtf`/`.gff`, and the protein `.faa`
 - Per the snpEff documentation, these ref info have to be renamed as such:
   - Ref genome sequence: `sequences.fa`
   - GTF files: `genes.gtf`
+  - GFF files: `genes.gff`
   - Protein info: `protein.fa`
+- Note: Database building can use .gtf or .gff, depends on availability on NCBI or user's preference.
 - Thus, when we copy the files, we also attempt to rename them according to the doc
 ```
-cp Hs91-R6/GCF_004799605.1_ASM479960v1_genomic.fna resources/SnpEff/data/
-sequences.fa
-cp Hs91-R6/genomic.gtf resources/SnpEff/data/genes.gtf
-cp Hs91-R6/protein.faa resources/SnpEff/data/protein.fa
-cp Hs91-R6/genomic.gff resources/SnpEff/data/genes.gff
-```
-- Move the files into the ref-genome database folder `Hs91-R6/`
-```
-mv resources/SnpEff/data/{sequences.fa,genes.gtf,protein.fa} resources/SnpEff/data/Hs91-R6/
+cp HsNRC-1/GCF_000006805.1_ASM680v1_genomic.fna resources/SnpEff/data/HsNRC-1/sequences.fa
+cp HsNRC-1/genomic.gtf resources/SnpEff/data/HsNRC-1/genes.gtf
+cp HsNRC-1/protein.faa resources/SnpEff/data/HsNRC-1/protein.fa
+cp HsNRC-1/genomic.gff resources/SnpEff/data/HsNRC-1/genes.gff
 ```
 #### Build the database
 - Note: run this command at user home, make sure there are 3 files inside the `resources/SnpEff/data/Hs91-R6/`
+- With gtf files:     
 ```
 snpEff build -Xmx4g  -noCheckCds -noCheckProtein -gtf22 -c resources/SnpEff/snpEff.config  -v Hs91-R6
+```
+- With gff files:
+```
+
 ```
 ### 4. Run the annotation
 - For now, we run annotation without optional parameters
