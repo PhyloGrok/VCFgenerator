@@ -41,6 +41,7 @@ mkdir -p resources/SnpEff/data/HsNRC-1
   - GTF files: `genes.gtf`
   - GFF files: `genes.gff`
   - Protein info: `protein.fa`
+  - CDS file: `cds.fa`
 - Note: Database building can use .gtf or .gff, depends on availability on NCBI or user's preference.
 - Thus, when we copy the files, we also attempt to rename them according to the doc
 ```
@@ -60,15 +61,16 @@ snpEff build -Xmx4g  -noCheckCds -noCheckProtein -gtf22 -c resources/SnpEff/snpE
 ```
 snpEff build -Xmx4g -gff3 -c resources/SnpEff/snpEff.config -v HsNRC-1
 ```
+- *Note: it seems like SnpEff cannot recognize the systemic name, not the human readable gene name from the GFF files. Address in Issue.*
 ### 4. Run the annotation
-- For now, we run annotation without optional parameters
+- For now, we run annotation with no downstream, no upstream
 #### Run with a single file:
 ```
-snpEff ann -c resources/SnpEff/snpEff.config  HsNRC-1 pH_exp_vcfs/SRR9025102_final_variants.vcf > resources/SRR9025102_final_variants_annotated.vcf
+snpEff ann -no-downstream -no-upstream -c resources/SnpEff/snpEff.config  HsNRC-1 pH_exp_vcfs/SRR9025102_final_variants.vcf > resources/SRR9025102_final_variants_annotated.vcf
 ```
 - Specify more output files
 ```
-snpEff ann -c resources/SnpEff/snpEff.config  HsNRC-1 HsNRC-1/pH_exp_vcfs/SRR9025102_final_variants.vcf > resources/SRR9025102_final_variants_annotated.vcf -s resources/SRR9025102_summary.html -csvStats resources/SRR9025102_annotated.csv
+snpEff ann -no-downstream -no-upstream -c resources/SnpEff/snpEff.config  HsNRC-1 HsNRC-1/pH_exp_vcfs/SRR9025102_final_variants.vcf > resources/SRR9025102_final_variants_annotated.vcf -s resources/SRR9025102_summary.html -csvStats resources/SRR9025102_annotated.csv
 ```
 
 - To see the optional parameters, run `snpEff ann`
@@ -81,4 +83,4 @@ snpEff ann -c resources/SnpEff/snpEff.config  HsNRC-1 HsNRC-1/pH_exp_vcfs/SRR902
 ``` 
 ./resources/snpeff_annotate.sh -d HsNRC-1 -i pH_exp_vcfs/ -o resources/
 ```
-- The output files should be located in the `resouces/` under {variant}_annotated.vcf
+- The output files should be located in the `resouces/` under {variant}_annotated.vcf along with the html, txt, and csv files
