@@ -15,7 +15,7 @@ SNPEFFDIR=${FIRSTDIR}${TMP/../}
 ```
 - the variable $SNPEFFDIR holds the directory where the config file is
 
-### 3. Build a database for the reference genome (in this case, the NRC-1 GCF_004*.fna)
+### 3. Build a database for the reference genome (in this case, the NRC-1: GCF_000006805.1.fna)
 #### Add the genome entry (for the database into the snpEff.config
 - copy the config file over to the directory
 ```
