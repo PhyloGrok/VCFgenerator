@@ -48,26 +48,27 @@ cp HsNRC-1/GCF_000006805.1_ASM680v1_genomic.fna resources/SnpEff/data/HsNRC-1/se
 cp HsNRC-1/genomic.gtf resources/SnpEff/data/HsNRC-1/genes.gtf
 cp HsNRC-1/protein.faa resources/SnpEff/data/HsNRC-1/protein.fa
 cp HsNRC-1/genomic.gff resources/SnpEff/data/HsNRC-1/genes.gff
+cp HsNRC-1/cds_from_genomic.fna resources/SnpEff/data/HsNRC-1/cds.fa
 ```
 #### Build the database
-- Note: run this command at user home, make sure there are 3 files inside the `resources/SnpEff/data/Hs91-R6/`
+- Note: run this command at user home, make sure there are 3 files inside the `resources/SnpEff/data/HsNRC-1/`
 - With gtf files:     
 ```
-snpEff build -Xmx4g  -noCheckCds -noCheckProtein -gtf22 -c resources/SnpEff/snpEff.config  -v Hs91-R6
+snpEff build -Xmx4g  -noCheckCds -noCheckProtein -gtf22 -c resources/SnpEff/snpEff.config  -v HsNRC-1
 ```
 - With gff files:
 ```
-
+snpEff build -Xmx4g -gff3 -c resources/SnpEff/snpEff.config -v HsNRC-1
 ```
 ### 4. Run the annotation
 - For now, we run annotation without optional parameters
 #### Run with a single file:
 ```
-snpEff ann -c resources/SnpEff/snpEff.config  Hs91-R6 Hs91-R6/pH_exp_vcfs/SRR9025102_final_variants.vcf > resources/SRR9025102_final_variants_annotated.vcf
+snpEff ann -c resources/SnpEff/snpEff.config  HsNRC-1 pH_exp_vcfs/SRR9025102_final_variants.vcf > resources/SRR9025102_final_variants_annotated.vcf
 ```
 - Specify more output files
 ```
-snpEff ann -c resources/SnpEff/snpEff.config  Hs91-R6 Hs91-R6/pH_exp_vcfs/SRR9025102_final_variants.vcf > resources/SRR9025102_final_variants_annotated.vcf -s resources/SRR9025102_summary.html -csvStats resources/SRR9025102_annotated.csv
+snpEff ann -c resources/SnpEff/snpEff.config  HsNRC-1 HsNRC-1/pH_exp_vcfs/SRR9025102_final_variants.vcf > resources/SRR9025102_final_variants_annotated.vcf -s resources/SRR9025102_summary.html -csvStats resources/SRR9025102_annotated.csv
 ```
 
 - To see the optional parameters, run `snpEff ann`
@@ -78,6 +79,6 @@ snpEff ann -c resources/SnpEff/snpEff.config  Hs91-R6 Hs91-R6/pH_exp_vcfs/SRR902
   - `-i`: the input folder containing the files
   - `-o`: the output folder
 ``` 
-./resources/snpeff_annotate.sh -d Hs91-R6 -i Hs91-R6/pH_exp_vcfs/ -o resources/
+./resources/snpeff_annotate.sh -d HsNRC-1 -i pH_exp_vcfs/ -o resources/
 ```
 - The output files should be located in the `resouces/` under {variant}_annotated.vcf
