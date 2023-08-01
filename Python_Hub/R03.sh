@@ -23,7 +23,7 @@ mkdir ../../media/volume/sdb/$1/assembly/results/annotation
 esearch -db sra -query "${2}" | efetch -format docsum | xtract -pattern Runs -ACC @acc  -element "&ACC" > ../../media/volume/sdb/$1/${1}.txt
 esearch -db sra -query "${2}" | efetch -format runinfo > ../../media/volume/sdb/$1/assembly/reference/RunInfo.txt
 datasets download genome taxon $3 --reference --include genome,rna,protein,cds,gff3,gtf,gbff,seq-report --filename ../../media/volume/sdb/$1/assembly/${3}.zip
-prefetch -x --option-file ../../media/volume/sdb/$1/${1}.txt -O ../../media/volume/sdb/$1/sra/
+prefetch --option-file ../../media/volume/sdb/$1/${1}.txt -O ../../media/volume/sdb/$1/sra/
 fasterq-dump -t ../../media/volume/sdb/temp_files --outdir ../../media/volume/sdb/$1/fastq ../../media/volume/sdb/$1/sra/SRR*
 ## Data Processing
 unzip ../../media/volume/sdb/$1/assembly/${3}.zip -d ../../media/volume/sdb/$1/assembly/reference
