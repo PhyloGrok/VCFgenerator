@@ -5,8 +5,8 @@ echo $1
 echo $2
 echo $3
 ## Make Directories 
-mkdir ../../media/volume/sdb/$1
-mkdir ../../media/volume/sdb/$1/sra
+mkdir -m777 ../../media/volume/sdb/$1
+mkdir -m777 ../../media/volume/sdb/$1/sra
 mkdir ../../media/volume/sdb/$1/fastq
 mkdir ../../media/volume/sdb/$1/fastq/untrimmed
 mkdir ../../media/volume/sdb/$1/fastq/trimmed
