@@ -88,20 +88,72 @@ snpEff ann -no-downstream -no-upstream -c resources/SnpEff/snpEff.config  HsNRC-
 
 ## Automating SnpEff Annotation
 - Here, the annotation process will be automated, from building the custom database based on the reference genome downloaded from NCBI, to performing Snpeff annotation.
-- First, locate the resources/ folder, and the reference data folder
-
-### Reference data:
+### Setting up the custom database
+1. Resources
+- To set up the resources folder: (in this case, the resources folder have already been created)
+```
+SNPEFF_PATH="/media/volume/sdb/resources/SnpEff"
+```
+- First, get the path of the directory where the main config file is:
+```
+FIRSTDIR=$(dirname $(dirname $(which snpEff)))
+TMP=$(dirname $(readlink -s `which snpEff`))
+SNPEFFDIR=${FIRSTDIR}${TMP/../}
+```
+- Copy it to the the resources folder
+```
+cp $SNPEFFDIR/snpEff.config  $SNPEFF_PATH
+```
+2. Reference data
 - The reference data is located in the user specified folder, in this case, `bigrun2`
 ```
 REFDIR="/media/volume/sdb/bigrun2/assembly/reference/ncbi_dataset/data"
-REFPATH=$(find "$REFDIR" -type d -name "GCF*")  -> "/media/volume/sdb/bigrun2/assembly/reference/ncbi_dataset/data/GCF_004799605.1"
-REFNAME=$(basename "$REFPATH")  -> "GCF_004799605.1"
+REFPATH=$(find "$REFDIR" -type d -name "GCF*")
+REFNAME=$(basename "$REFPATH")
 ENTRY_INFO=$(find . -maxdepth 1 -name 'GCF*.fna' -exec sh -c "head -n 1 {} | sed 's/^[^ ]* //;s/,.*$//'" \;)
 ```
-
-
-
-
+3. Setting up the config file:
+- First, you may need to provide access to the user: `sudo chmod a+rw $SNPEFF_PATH/snpEff.config`
+- Run the following command to add the database entry to the config file:
+```
+echo "                    
+# $ENTRY_INFO, $REFNAME
+$REFNAME.genome : $REFNAME" >> $SNPEFF_PATH/snpEff.config
+```
+4. Setting up and build the database
+- Create the database folder for the entry in the resources/:
+```
+mkdir -p $SNPEFF_PATH/data/$REFNAME
+```
+- Copy the reference files into the database folder
+```
+cp $REFPATH/GCF_*_genomic.fna $SNPEFF_PATH/data/$REFNAME/sequences.fa
+cp $REFPATH/protein.faa $SNPEFF_PATH/data/$REFNAME/protein.fa
+cp $REFPATH/genomic.gff $SNPEFF_PATH/data/$REFNAME/genes.gff
+cp $REFPATH/cds_from_genomic.fna $SNPEFF_PATH/data/$REFNAME/cds.fa
+```
+- You may need to provide access to the user:
+```
+sudo chmod a+rw $SNPEFF_PATH/data/$REFNAME/*
+sudo chmod a+w $SNPEFF_PATH/data/$REFNAME/
+```
+- Build the database with gff files
+```
+snpEff build -Xmx4g -noCheckCds -noCheckProtein -gff3 -c $SNPEFF_PATH/snpEff.config -v $REFNAME
+```
+- Note: right now, the annotation has to be run with `-noCheckCds -noCheckProtein` due to conflicts between gff and the ref genome. 
+### Run the annotation
+- The built database is located in: `$SNPEFF_PATH/data/$REFNAME`
+- The snpeff_annotate.sh is located in: resources/ so `$(dirname "$SNPEFF_PATH")/snpeff_annotate.sh`
+- To run the annotation scripts:
+```
+$(dirname "$SNPEFF_PATH")/snpeff_annotate.sh -c $SNPEFF_PATH/snpEff.config -d $REFNAME -i pH_exp_vcfs/ -o ./test_annotation/
+```
+- The command from the script takes 4 arguments:
+  - `-c`: the Snpeff.config file which is `$SNPEFF_PATH/snpEff.config`
+  - `-d`: the database which is `$REFNAME`
+  - `-i`: the input folder containing the files, `pH_exp_vcfs/`
+  - `-o`: the output folder, `./test_annotation/`
 
 
 
