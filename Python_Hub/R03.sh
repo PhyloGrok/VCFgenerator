@@ -1,5 +1,5 @@
 #!/bin/bash
-##LJonesIII
+##LJonesIII, Jrobinson, NLuu
 ## Variable Check
 echo $1
 echo $2
