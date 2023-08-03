@@ -59,7 +59,7 @@ snpEff build -Xmx4g  -noCheckCds -noCheckProtein -gtf22 -c resources/SnpEff/snpE
 ```
 - With gff files:
 ```
-snpEff build -Xmx4g -gff3 -c resources/SnpEff/snpEff.config -v HsNRC-1
+snpEff build -Xmx4g -noCheckCds -noCheckProtein -gff3 -c resources/SnpEff/snpEff.config -v HsNRC-1
 ```
 - *Note: it seems like SnpEff cannot recognize the systemic name, not the human readable gene name from the GFF files. Address in Issue.*
 ### 4. Run the annotation
@@ -76,11 +76,32 @@ snpEff ann -no-downstream -no-upstream -c resources/SnpEff/snpEff.config  HsNRC-
 - To see the optional parameters, run `snpEff ann`
 #### Run with multiple files:
 - Make a bash script to run a for loop: see `snpeff_annotate.sh` 
-- The command from the script takes 3 argument:
+- The command from the script takes 4 argument:
+  - `-c`: the Snpeff.config file
   - `-d`: the database
   - `-i`: the input folder containing the files
   - `-o`: the output folder
 ``` 
-./resources/snpeff_annotate.sh -d HsNRC-1 -i pH_exp_vcfs/ -o resources/
+./resources/snpeff_annotate.sh -c resources/SnpEff/snpEff.config -d HsNRC-1 -i pH_exp_vcfs/ -o resources/
 ```
 - The output files should be located in the `resouces/` under {variant}_annotated.vcf along with the html, txt, and csv files
+
+## Automating SnpEff Annotation
+- Here, the annotation process will be automated, from building the custom database based on the reference genome downloaded from NCBI, to performing Snpeff annotation.
+- First, locate the resources/ folder, and the reference data folder
+
+### Reference data:
+- The reference data is located in the user specified folder, in this case, `bigrun2`
+```
+REFDIR="/media/volume/sdb/bigrun2/assembly/reference/ncbi_dataset/data"
+REFPATH=$(find "$REFDIR" -type d -name "GCF*")  -> "/media/volume/sdb/bigrun2/assembly/reference/ncbi_dataset/data/GCF_004799605.1"
+REFNAME=$(basename "$REFPATH")  -> "GCF_004799605.1"
+ENTRY_INFO=$(find . -maxdepth 1 -name 'GCF*.fna' -exec sh -c "head -n 1 {} | sed 's/^[^ ]* //;s/,.*$//'" \;)
+```
+
+
+
+
+
+
+
