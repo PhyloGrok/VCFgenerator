@@ -1,6 +1,11 @@
-REFDIR="/media/volume/sdb/bigrun2/assembly/reference/ncbi_dataset/data"
+#!/bin/bash
+
+REFDIR="/media/volume/sdb/$1/assembly/reference/ncbi_dataset/data"
 REFPATH=$(find "$REFDIR" -type d -name "GCF*")
 REFNAME=$(basename "$REFPATH")
+
+RESULT_PATH="/media/volume/sdb/$1/assembly/results"
+
 ENTRY_INFO=$(find . -maxdepth 1 -name 'GCF*.fna' -exec sh -c "head -n 1 {} | sed 's/^[^ ]* //;s/,.*$//'" \;)
 
 FIRSTDIR=$(dirname $(dirname $(which snpEff)))
@@ -8,7 +13,6 @@ TMP=$(dirname $(readlink -s `which snpEff`))
 SNPEFFDIR=${FIRSTDIR}${TMP/../}
 
 SNPEFF_PATH="/media/volume/sdb/resources/SnpEff"
-
 cp $SNPEFFDIR/snpEff.config  $SNPEFF_PATH
 sudo chmod a+rw $SNPEFF_PATH/snpEff.config
 
@@ -29,4 +33,4 @@ sudo chmod a+w $SNPEFF_PATH/data/$REFNAME/
 
 snpEff build -Xmx4g -noCheckCds -noCheckProtein -gff3 -c $SNPEFF_PATH/snpEff.config -v $REFNAME
 
-$(dirname "$SNPEFF_PATH")/snpeff_annotate.sh -c $SNPEFF_PATH/snpEff.config -d $REFNAME -i pH_exp_vcfs/ -o ./test_annotation/
+$(dirname "$SNPEFF_PATH")/snpeff_annotate.sh -c $SNPEFF_PATH/snpEff.config -d $REFNAME -i $RESULT_PATH/final_vcf/ -o $RESULT_PATH/annotation/
