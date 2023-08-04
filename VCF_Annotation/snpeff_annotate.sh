@@ -1,4 +1,6 @@
 #!/bin/bash
+##Contributors: Nluu
+
 # Parse command-line options
 while getopts "c:d:i:o:" opt; do
 case $opt in
