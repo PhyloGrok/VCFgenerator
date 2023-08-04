@@ -1,5 +1,5 @@
 #!/bin/bash
-##Nluu
+##Contributors: Nluu
 
 REFDIR="/media/volume/sdb/$1/assembly/reference/ncbi_dataset/data"
 REFPATH=$(find "$REFDIR" -type d -name "GCF*")
