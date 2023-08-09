@@ -1,15 +1,24 @@
 # VCFgenerator
-Automated variant calling app for NextGen evolutionary genomics
+Automated variant calling and Shiny dashboard for NextGen evolutionary genomics.<br>
 
-See the OmicsVMconfigure for the environment: https://github.com/PhyloGrok/OmicsVMconfigure
+Environment: Ubuntu 20.02 VM configured with required software packages described in OmicsVMconfigure (https://github.com/PhyloGrok/OmicsVMconfigure)
+
+## Usage
+1. Gitclone VCFgenerator repository into your Ubuntu 20.02 Linux user/home directory.
+2. Run the command ```py VCFgenerator/Python_Hub/Controller.py```
+3. User will be prompted for 4 inputs: 1) designated project directory name (string), 2) Reference species ncbi txid (integer), 3) NCBI BioProject ID (string, starts with PRJNA), and 4) directory for results.
+
+## Acknowledgements
+1. Data Carpentries Genomics Workshop variant calling workflow
+2. Lenski LTEE experiments
 
 ## Funding
 
-This work used Jetstream2 at Indiana University (IU) through research allocation BIO220099 from the Advanced Cyberinfrastructure Coordination Ecosystem: Services & Support (ACCESS) program, which is supported by National Science Foundation grants #2138259, #2138286, #2138307, #2137603, and #2138296.
+This work used Jetstream2 at Indiana University (IU) through research allocation <b>BIO220099</b> from the Advanced Cyberinfrastructure Coordination Ecosystem: Services & Support (ACCESS) program, which is supported by National Science Foundation grants #2138259, #2138286, #2138307, #2137603, and #2138296.
 
-This work used Jetstream at Indiana Universery/Texas Advanced Computing Center (IU/TACC) through research startup allocation BIO210100 from the Extreme Science and Engineering Discovery Environment (XSEDE), which was supported by National Science Foundation grant number #1548562.
+This work used Jetstream at Indiana Universery/Texas Advanced Computing Center (IU/TACC) through research startup allocation  <b>BIO210100</b> from the Extreme Science and Engineering Discovery Environment (XSEDE), which was supported by National Science Foundation grant number #1548562.
 
-This work used Jetstream at Indiana Universery/Texas Advanced Computing Center (IU/TACC) through educational allocation MCB200044 from the Extreme Science and Engineering Discovery Environment (XSEDE), which was supported by National Science Foundation grant number #1548562.
+This work used Jetstream at Indiana Universery/Texas Advanced Computing Center (IU/TACC) through educational allocation  <b>MCB200044</b> from the Extreme Science and Engineering Discovery Environment (XSEDE), which was supported by National Science Foundation grant number #1548562.
 
 ## Citations
 
