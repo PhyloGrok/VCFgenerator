@@ -8,6 +8,13 @@ Environment: Ubuntu 20.02 VM configured with required software packages describe
 2. Run the command ```py VCFgenerator/Python_Hub/Controller.py```
 3. User will be prompted for 4 inputs: 1) designated project directory name (string), 2) Reference species ncbi txid (integer), 3) NCBI BioProject ID (string, starts with PRJNA), and 4) directory for results.
 
+## Workflow Description
+1. .fastqc and Reference Data Retrieval - Takes a user-input BioProjectID to retrieve .fastq files and reference genome data for a user-specified BioProject. (Currently works will Illumina-sequence genomic DNA data).  Uses sratoolkit and ncbi-datasets APIs.
+2. Data QC - Runs Trimmomatic and fastqc on the .fastq files.
+3. Assembly and Variant Calling - Uses BWA to assemble Illumina paired-end sequences to reference genome, process files with SAMtools and BCFtools to generate variant calling format (.vcf) files
+4. VCF annotation - Uses SNPeff to annotate .vcf files using the reference genome .gff/.gtf annotation files.
+5. Shiny Dashboard - Transfers .vcf data to SQLite database, displays a stacked barplot of mutation types by sample, and displays a circos-style plot annotated with all called variants.
+
 ## Acknowledgements
 1. The <em>Data Carpentry Genomics Workshop</em> (https://datacarpentry.org/genomics-workshop/) was the original template and inspiration for the Illumina QC, BWA assembly and variant calling steps of this workflow.  Implementation here has been modified for user specification of the dataset, high-throughput automated processing within a Linux Ubuntu-based command-line environment with many additonal upstream and downstream features for automation and data dashboard. <br>
 2. Lenski Long-Term E. coli Evolution (LTEE) experiment.  The strategy for analysis of genomic variants was inspired by Tenaillon et al. 2016 and other publications and content from the LTEE (https://lenski.mmg.msu.edu/ecoli/genomicsdat.html). 
