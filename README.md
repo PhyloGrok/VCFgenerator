@@ -15,6 +15,8 @@ Environment: Ubuntu 20.02 VM configured with required software packages describe
 4. VCF annotation - Uses SNPeff to annotate .vcf files using the reference genome .gff/.gtf annotation files.
 5. Shiny Dashboard - Transfers .vcf data to SQLite database, displays a stacked barplot of mutation types by sample, and displays a circos-style plot annotated showing called variants from multiple (up to 5 genomic BioSamples).
 
+## Future
+
 ## Acknowledgements
 1. The <em>Data Carpentry Genomics Workshop</em> (https://datacarpentry.org/genomics-workshop/) was the original template and inspiration for the Illumina QC, BWA assembly and variant calling steps of this workflow.  Implementation here has been modified for user specification of the dataset, high-throughput automated processing within a Linux Ubuntu-based command-line environment with many additonal upstream and downstream features for automation and data dashboard. <br>
 2. Lenski Long-Term E. coli Evolution (LTEE) experiment.  The strategy for analysis of genomic variants was inspired by Tenaillon et al. 2016 and other publications and content from the LTEE (https://lenski.mmg.msu.edu/ecoli/genomicsdat.html). 
