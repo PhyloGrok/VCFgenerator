@@ -15,7 +15,11 @@ Environment: Ubuntu 20.02 VM configured with required software packages describe
 4. VCF annotation - Uses SNPeff to annotate .vcf files using the reference genome .gff/.gtf annotation files.
 5. Shiny Dashboard - Transfers .vcf data to SQLite database, displays a stacked barplot of mutation types by sample, and displays a circos-style plot annotated showing called variants from multiple (up to 5 genomic BioSamples).
 
-## Future
+## Demonstration Data
+1. Halobacterium pH experiment 
+2. Halobacterium mutation acumulation lines experiment
+
+## Future Goals
 
 ## Acknowledgements
 1. The <em>Data Carpentry Genomics Workshop</em> (https://datacarpentry.org/genomics-workshop/) was the original template and inspiration for the Illumina QC, BWA assembly and variant calling steps of this workflow.  Implementation here has been modified for user specification of the dataset, high-throughput automated processing within a Linux Ubuntu-based command-line environment with many additonal upstream and downstream features for automation and data dashboard. <br>
