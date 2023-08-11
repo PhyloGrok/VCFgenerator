@@ -5,7 +5,7 @@ Environment: Ubuntu 20.02 VM configured with required software packages describe
 
 ## Usage
 1. Gitclone VCFgenerator repository into your Ubuntu 20.02 Linux user/home directory.
-2. Run the command ```py VCFgenerator/Python_Hub/Controller.py```
+2. Run the command ```sudo python VCFgenerator/Python_Hub/Controller.py```
 3. User will be prompted for 4 inputs: 1) designated project directory name (string), 2) Reference species ncbi txid (integer), 3) NCBI BioProject ID (string, starts with PRJNA), and 4) directory for results.
 
 ## Workflow Description
