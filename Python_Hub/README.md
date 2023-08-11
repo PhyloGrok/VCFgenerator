@@ -32,7 +32,6 @@ user4 = input('What is your mount point path?: /example/1/2/3   ')
 - Input the file path you are using for your large data storage
 - ***If the data storage you are using is not connected to your root directory, you will have to specify the relative path from your current directory***
 ### Workflow Script Run Order 
-1. Controller.py  2. Thehub.py  3. download.py  4. import.sh
-5. splitter.sh (Optional)
-6. zip.sh
-7. trimmomatic.py  8. thetrimmer.sh  9. variants.py  10. VCF.sh
+- 1. Controller.py  2. Thehub.py  3. download.py  4. import.sh)
+- 5. splitter.sh (Optional)
+- 6. zip.sh  7. trimmomatic.py  8. thetrimmer.sh  9. variants.py  10. VCF.sh
