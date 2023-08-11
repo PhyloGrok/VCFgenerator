@@ -6,10 +6,15 @@ Environment: Ubuntu 20.02 VM configured with required software packages describe
 ## Usage
 1. Gitclone VCFgenerator repository into your Ubuntu 20.02 Linux user/home directory.
 2. Run the command ```sudo python VCFgenerator/Python_Hub/Controller.py```
-3. User will be prompted for 4 inputs: 1) designated project directory name (string), 2) Reference species ncbi txid (integer), 3) NCBI BioProject ID (string, starts with PRJNA), and 4) directory for results.
+3. User will be prompted for 4 inputs:
+   0) project name (string),
+   1) NCBI BioProject ID (string, starts with PRJNA),
+   2) Reference species ncbi taxon ID (txid) (integer),
+   3) are the paired-end .fastq files split? (yes/no),
+   4) filepath for results directory or storage volume mount point (string) (ie. "/media/volume/sdb/").
 
 ## Workflow Description
-1. .fastqc and Reference Data Retrieval - Takes a user-input BioProjectID to retrieve .fastq files and reference genome data for a user-specified BioProject. (Currently works will Illumina-sequence genomic DNA data).  Uses sratoolkit and ncbi-datasets APIs.
+1. fastqc and Reference Data Retrieval - Takes a user-input BioProjectID to retrieve .fastq files and reference genome data for a user-specified BioProject. (Currently works will Illumina-sequence genomic DNA data).  Uses sratoolkit and ncbi-datasets APIs.
 2. Data QC - Runs Trimmomatic and fastqc on the .fastq files.
 3. Assembly and Variant Calling - Uses BWA to assemble Illumina paired-end sequences to reference genome, process files with SAMtools and BCFtools to generate variant calling format (.vcf) files
 4. VCF annotation - Uses SNPeff to annotate .vcf files using the reference genome .gff/.gtf annotation files.
