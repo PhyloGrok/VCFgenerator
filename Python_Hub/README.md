@@ -41,4 +41,4 @@ user4 = input('What is your mount point path?: /example/1/2/3   ')
 7. trimmomatic.py
 8. thetrimmer.sh
 9. variants.py
-10. VCF.sh
+10. VCF.sh | VCF_Int (Optional)
