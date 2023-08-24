@@ -1,5 +1,7 @@
 #!/bin/bash
 ##LJones, Jrobinson, NLuu 
+## Code Inspiration
+# biostars.org/p/141256/
 # User Inputs
 ## 1 = project name 
 ## 2 = file path
