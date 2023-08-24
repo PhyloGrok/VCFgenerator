@@ -30,17 +30,29 @@ user3 = input('Are the paired-end fastq files already split?: [yes/no]   ')
 user4 = input('What is your mount point path?: /example/1/2/3   ')
 ```
 - Input the file path you are using for your large data storage
-- ***If the data storage you are using is not connected to your root directory, you will have to specify the relative path from your current directory***
+- ***If the data storage you are using is not connected to your root directory, you will have to specify the relative path from your current directory*** 
 # Workflow Script Run Order 
 1. Controller.py
+- Accepts User Inputs 
 2. Thehub.py
+- Contains and controls Python Scripts that run the Command Line workflow 
 3. download.py
+- Python script that controls the data import and pre-processing steps 
 4. import.sh
+- Command line script that imports the datasets 
 5. splitter.sh (Optional)
+- Command line script that splits interleaved files for later processing 
 6. zip.sh
-7. trimmomatic.py
+- Command line script that zips files for storage 
+7. Trimmomatic.py
+- Python script that controls the trimmomatic and fastq stages of the workflow 
 8. thetrimmer.sh
-9. variants.py
-10. VCF.sh | VCF_Int (Alternative)
-11. annotations.py
+- Command line script that runs the trimmomatic code 
+9. Variants.py
+- Python script that controls the Variant Calling stage of the workflow 
+10. VCF.sh | VCF_Int.sh (Optional)
+- Command line script that runs the Variant Calling workflow 
+11. Annotations.py
+- Python script that controls the annotations steps 
 12. annotation_config.sh | snpeff_annotate.sh
+- Command line script that runs the annotation workflow 
