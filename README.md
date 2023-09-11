@@ -40,7 +40,7 @@ This work used Jetstream at Indiana Universery/Texas Advanced Computing Center (
 
 This work used Jetstream at Indiana Universery/Texas Advanced Computing Center (IU/TACC) through educational allocation  <b>MCB200044</b> from the Extreme Science and Engineering Discovery Environment (XSEDE), which was supported by National Science Foundation grant number #1548562.
 
-Undergraduate student interns Lloyd Jones III and Nhi Luu were supported by Merck <b>Data Science in the Life Sciences Fellowship</b>
+Undergraduate student interns Lloyd Jones III, Nhi Luu, and Jan Le were supported by Merck <b>Data Science in the Life Sciences Fellowship</b>
 
 ## Citations
 
