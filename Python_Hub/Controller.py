@@ -25,4 +25,4 @@ contents = outputs.read()
 print(contents)
 outputs.close()
 # Run the Hub script that controls the workflow 
-hub  = subprocess.call(["python","Thehub.py"])
+hub  = subprocess.call(["python3","Thehub.py"])
