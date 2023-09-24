@@ -12,7 +12,7 @@ with open(f'inputs.txt','r') as userfile:
     inputs = userfile.read().splitlines()
 userfile.close()
 # Import sra text file and converts it to a python list 
-with open(f'../../media/volume/sdb/{inputs[0]}/{inputs[0]}.txt','r') as userfile:
+with open(f'{inputs[4]}/{inputs[0]}/{inputs[0]}.txt','r') as userfile:
     srafile = userfile.read().splitlines()
 userfile.close()
 # Trimmomatic Script variant runs based on length of list 
