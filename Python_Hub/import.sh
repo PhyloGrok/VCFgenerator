@@ -30,7 +30,8 @@ esearch -db sra -query "${2}" | efetch -format docsum | xtract -pattern Runs -AC
 esearch -db sra -query "${2}" | efetch -format runinfo > $4/$1/assembly/reference/RunInfo.txt
 datasets download genome taxon $3 --reference --include genome,rna,protein,cds,gff3,gtf,gbff,seq-report --filename $4/$1/assembly/${3}.zip
 prefetch --option-file $4/$1/${1}.txt -O $4/$1/sra/
-fasterq-dump -t $4/temp_files --outdir $4/$1/fastq $4/$1/sra/SRR*
+#fasterq-dump -t $4/temp_files --outdir $4/$1/fastq $4/$1/sra/SRR*
+fasterq-dump $4/$1/sra/SRR* -O $4/$1/fastq/untrimmed -t $4/temp_files
 ## Data Processing
 unzip $4/$1/assembly/${3}.zip -d $4/$1/assembly/reference
 cp $4/$1/assembly/reference/ncbi_dataset/data/GCF*/GCF*.fna $4/$1/assembly/reference/ref_genome.fasta
