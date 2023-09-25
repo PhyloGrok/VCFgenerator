@@ -3,7 +3,7 @@
 ## Import Libraries 
 import subprocess
 # Workflow shell scripts 
-download = subprocess.call(["python","download.py"]) ## Search and Download scripts, splits files if necessary 
-trim  = subprocess.call(["python","trimmmomatic.py"]) ## runs trimmomatic 
-variants = subprocess.call(["python","variants.py"]) ## Variant calling workflow loop
-annotation = subprocess.call(["python","annotations.py"]) ## Final Variant calling annotation script
+download = subprocess.call(["python3","download.py"]) ## Search and Download scripts, splits files if necessary 
+trim  = subprocess.call(["python3","trimmmomatic.py"]) ## runs trimmomatic 
+variants = subprocess.call(["python3","variants.py"]) ## Variant calling workflow loop
+annotation = subprocess.call(["python3","annotations.py"]) ## Final Variant calling annotation script
