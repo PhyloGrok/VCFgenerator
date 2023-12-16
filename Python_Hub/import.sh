@@ -29,7 +29,7 @@ mkdir -m777 $4/$1/assembly/results/annotation
 esearch -db sra -query "${2}" | efetch -format docsum | xtract -pattern Runs -ACC @acc  -element "&ACC" > $4/$1/${1}.txt
 esearch -db sra -query "${2}" | efetch -format runinfo > $4/$1/assembly/reference/RunInfo.txt
 datasets download genome taxon $3 --reference --include genome,rna,protein,cds,gff3,gtf,gbff,seq-report --filename $4/$1/assembly/${3}.zip
-prefetch --option-file $4/$1/${1}.txt -O $4/$1/sra/
+prefetch --option-file $4/$1/${1}.txt -O $4/$1/sra/  ## on this step, the sra-toolkit filepath wasn't set, also update the configure repo about this
 #fasterq-dump -t $4/temp_files --outdir $4/$1/fastq $4/$1/sra/SRR*
 fasterq-dump $4/$1/sra/SRR* -O $4/$1/fastq/untrimmed -t $4/temp_files
 ## Data Processing
