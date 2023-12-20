@@ -21,8 +21,8 @@ userfile.close()
 yeslist = ['y','Y','yes']
 if inputs[3] in yeslist:
 ## Splitting Paired-end fastq files 
-    zipping = subprocess.call(['bash','./zip.sh',inputs[0],inputs[4]])
+    zipping = subprocess.call(['bash','./zip1.sh',inputs[0],inputs[1],inputs[2],inputs[4]])
 else:
     for x in srafile:
-        splitter = subprocess.call(['bash','./splitter.sh',inputs[0],inputs[4],x])
-    zipping = subprocess.call(['bash','./zip.sh',inputs[0],inputs[4]])       
+        splitter = subprocess.call(['bash','./splitter.sh',inputs[0],inputs[1],inputs[2],inputs[4],x])
+    zipping = subprocess.call(['bash','./zip.sh',inputs[0],inputs[1],inputs[2],inputs[4]])       
