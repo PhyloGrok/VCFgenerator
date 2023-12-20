@@ -9,11 +9,11 @@ import subprocess
 import numpy as np
 # Import Variables from the Controller py script
 with open('inputs.txt', 'r') as userfile:
-    all = userfile.read().splitlines()
+    inputs = userfile.read().splitlines()
 userfile.close()
 # run the variant calling process 
 yeslist = ['y','Y','yes']
-if all[3] in yeslist:
-    primary = subprocess.call(["bash","./VCF.sh", all[0],all[4]])
+if inputs[3] in yeslist:
+    primary = subprocess.call(["bash","./VCF.sh",inputs[0],inputs[1],inputs[2],inputs[4]])
 else:
-    interleaved = subprocess.call(["bash","./VCF_Int.sh", all[0],all[4]])
+    interleaved = subprocess.call(["bash","./VCF_Int.sh",inputs[0],inputs[1],inputs[2],inputs[4]])
