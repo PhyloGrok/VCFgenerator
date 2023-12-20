@@ -16,7 +16,7 @@ for x in $4/$1/fastq/*_1.fastq.gz
 do
 name=$(basename ${x} _1.fastq.gz)
 ## Generate the SAM files
-bwa mem -t 4 -p $4/$1/assembly/reference/ref_genome.fasta $4/$1/fastq/trimmed/${name}_1.trim.fastq.gz $4/$1/fastq/trimmed/${name}_2.trim.fastq.gz > $4/$1/assembly/results/sam/${name}.aligned.sam
+bwa mem -t 8 -p $4/$1/assembly/reference/ref_genome.fasta $4/$1/fastq/trimmed/${name}_1.trim.fastq.gz $4/$1/fastq/trimmed/${name}_2.trim.fastq.gz > $4/$1/assembly/results/sam/${name}.aligned.sam
 done
 ## Generate the BAM files
 for x in $4/$1/fastq/*_1.fastq.gz
