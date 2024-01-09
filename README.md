@@ -13,6 +13,9 @@ Environment: Ubuntu 20.02 VM configured with required software packages describe
    3) are the paired-end .fastq files split? (yes/no),
    4) filepath for results directory or storage volume mount point (string) (ie. "/media/volume/sdb/").
 
+
+![](../Workflow-Chart.png)
+
 ## Workflow Description
 1. fastqc and Reference Data Retrieval - Takes a user-input BioProjectID to retrieve .fastq files and reference genome data for a user-specified BioProject. (Currently works will Illumina-sequence genomic DNA data).  Uses sratoolkit and ncbi-datasets APIs.
 2. Data QC - Runs Trimmomatic and fastqc on the .fastq files.
