@@ -14,7 +14,7 @@ Environment: Ubuntu 20.02 VM configured with required software packages describe
    4) filepath for results directory or storage volume mount point (string) (ie. "/media/volume/sdb/").
 
 
-![](../Workflow-Chart.png)
+![](/Workflow-Chart.png)
 
 ## Workflow Description
 1. fastqc and Reference Data Retrieval - Takes a user-input BioProjectID to retrieve .fastq files and reference genome data for a user-specified BioProject. (Currently works will Illumina-sequence genomic DNA data).  Uses sratoolkit and ncbi-datasets APIs.
