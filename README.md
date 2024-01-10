@@ -6,13 +6,7 @@ Environment: Ubuntu 20.02 VM configured with required software packages describe
 ## Usage
 1. Gitclone VCFgenerator repository into your Ubuntu 20.02 Linux user/home directory.
 2. Run the command ```sudo python VCFgenerator/Python_Hub/Controller.py```
-3. User will be prompted for 4 inputs:
-   0) project name (string),
-   1) NCBI BioProject ID (string, starts with PRJNA),
-   2) Reference species ncbi taxon ID (txid) (integer),
-   3) are the paired-end .fastq files split? (yes/no),
-   4) filepath for results directory or storage volume mount point (string) (ie. "/media/volume/sdb/").
-
+3. User will be prompted for 5 inputs, used to run the workflow:
 
 ![](/Workflow-Chart.png)
 
