@@ -3,6 +3,10 @@
 
 #first search for bioprojects
 
+#user input for organism
+echo "Enter the organism you want to search for:"
+read organism
+
 echo "File name for BioProject search results:"
 read biosearch_output
 
@@ -17,7 +21,7 @@ output_dir="$main_dir/${biosearch_output}_SRA_lists"
 mkdir -p "$output_dir"
 echo "Output directory created: $output_dir"
 
-esearch -db bioproject -query "(\"Staphylococcus aureus\"[Organism]) AND (\"genome sequencing\"[Filter] AND \"bioproject sra\"[Filter] AND \"scope monoisolate\"[Filter])" | efetch -format docsum > $main_dir/${biosearch_output}.txt
+esearch -db bioproject -query "($organism[Organism]) AND (\"genome sequencing\"[Filter] AND \"bioproject sra\"[Filter] AND \"scope monoisolate\"[Filter])" | efetch -format docsum > $main_dir/${biosearch_output}.txt
 
 #parse the text and grab only the project accession ids
 proj_acc="<Project_Acc>"
@@ -43,11 +47,11 @@ for bioproject_id in $(cat "$input_file"); do
         bioproj_dir="$output_dir/$bioproject_id"
         mkdir -p "$bioproj_dir"
 
-        # Save the files to the subdirectory (named after the BioProject ID)
+        #save the files to the subdirectory (named after the BioProject ID)
         echo "$sra_check" > "$bioproj_dir/${bioproject_id}_SRA.txt"
 
-        # Download the SRA files using prefetch
-        prefetch --option-file "$bioproj_dir/${bioproject_id}_SRA.txt" --output-directory "$bioproj_dir"
+        #download the SRA files using prefetch
+       #prefetch --option-file "$bioproj_dir/${bioproject_id}_SRA.txt" --output-directory "$bioproj_dir"
     else
         echo "$bioproject_ID does not contain SRA files that meet criteria."
     fi
