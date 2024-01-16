@@ -18,12 +18,13 @@ Environment: Ubuntu 20.02 VM configured with required software packages describe
 5. Shiny Dashboard (nonfunctional, in development) - Transfers annotated .vcf data to a <em>SQLite</em> database, imports into an R dataframe and plots genomes in <em>R Shiny</em> dashboard with a stacked barplot of mutation types by sample, and displays a circos-style plot annotated showing called variants from multiple (up to 5 genomic BioSamples).
 
 ## Demonstration Data
-1. Halobacterium pH experiment. 
-2. Halobacterium mutation acumulation lines experiment.
+1. NCBI BioProject PRJNA541441 (15 .fastq SRA files). "Iron and Acid Adapted Strains of Halobacterium sp. NRC-1 obtained by Experimental Evolution" <em>initial testing</em><br>
+2. NCBI BioProject PRJNA844510 (67 .fastq SRA files). Halobacterium mutation acumulation lines. <em>testing for BGIseq and for scaled-up throughput<em?<br>
 
 ## Future Goals
 1. Incorporate a mummer branch for the workflow.
-2. 
+2. Comparative genomics Shiny app.
+3. Microbial human pathogen analysis.
 
 ## Acknowledgements
 1. <em>Data Carpentry Genomics Workshop</em> (https://datacarpentry.org/genomics-workshop/) was the original template for the QC, alignment and variant calling steps.  Here we focused on a command-line implementation, with user specification, and high-throughput automated processing in Linux Ubuntu-based cloud vm.<br>
