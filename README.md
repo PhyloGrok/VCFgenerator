@@ -40,7 +40,7 @@ This work used Jetstream at Indiana Universery/Texas Advanced Computing Center (
 
 This work used Jetstream at Indiana Universery/Texas Advanced Computing Center (IU/TACC) through educational allocation  <b>MCB200044</b> from the Extreme Science and Engineering Discovery Environment (XSEDE), which was supported by National Science Foundation grant number #1548562.
 
-UMBC Translational Life Science Technology (TLST) student interns Lloyd Jones III, Nhi Luu, and Jan Le supported by <em>Merck Data Science Fellowship for Observational Research Program</em> and the <em>UMBC College of Natural and Mathematical Sciences</em></b>.  Additionally, TLST student Gina Hwang contributed to the MUMMER branch of the workflow.
+UMBC Translational Life Science Technology (TLST) student interns Lloyd Jones III, Nhi Luu, and Jan Le supported by <em>Merck Data Science Fellowship for Observational Research Program</em> and the <em>UMBC College of Natural and Mathematical Sciences</em></b>.  Lloyd Jones III developed the variant calling workflow framework and workflow integration. Nhi Luu developed the annotation scripts and R-Shiny framework and integration. Jan Le prepared the "Iron and Acid Adaptation" analysis, developed EDirect scripts, and troubleshooted throughout the workflow.  Additionally, TLST student Gina Hwang contributed to the MUMMER branch of the workflow.
 
 ## Citations
 
