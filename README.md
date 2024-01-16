@@ -11,11 +11,11 @@ Environment: Ubuntu 20.02 VM configured with required software packages describe
 ![](/Workflow-Chart.png)
 
 ## Workflow Description
-1. fastqc and Reference Data Retrieval - Takes a user-input BioProjectID to retrieve .fastq files and reference genome data for a user-specified BioProject. (Currently works will Illumina-sequence genomic DNA data).  Uses sratoolkit and ncbi-datasets APIs.
-2. Data QC - Runs Trimmomatic and fastqc on the .fastq files.
-3. Assembly and Variant Calling - Uses BWA to assemble Illumina paired-end sequences to reference genome, process files with SAMtools and BCFtools to generate variant calling format (.vcf) files
-4. VCF annotation - Uses SNPeff to annotate .vcf files using the reference genome .gff/.gtf annotation files.
-5. Shiny Dashboard - Transfers .vcf data to SQLite database, displays a stacked barplot of mutation types by sample, and displays a circos-style plot annotated showing called variants from multiple (up to 5 genomic BioSamples).
+1. <b><u>download.py</u></b> Data Retrieval.  Downlaods reference genome and BioProject-linked SRA files base on user-provided data.  Currently works only with Illumina paired-end .fastq files, sequenced from genomics DNA data from a whole genome sequencing strategy.  Uses <em>ncbi EDirect, ncbi-datasets, and sra-toolkit</em> APIs.
+2. <b>trimmomatic.py</b> Data QC - Runs <em>trimmomatic</em> and <em>fastqc</em> on the .fastq sra files.
+3. <b>variants.py</b> Assembly and Variant Calling - Performs alignment of .fastq sequences to the reference genome using <em>bwa</em>.  Performed variant calling with <em>SAMtools</em> and <em>BCFtools</em>, generating variant calling format (.vcf) files as output.
+4. <b>annotations.py</b> VCF annotation - Annotates the .vcf files using <em>SNPeff</em> and reference genome .gff/.gtf annotation files. 
+5. Shiny Dashboard (nonfunctional, in development) - Transfers annotated .vcf data to a <em>SQLite</em> database, imports into an R dataframe and plots genomes in <em>R Shiny</em> dashboard with a stacked barplot of mutation types by sample, and displays a circos-style plot annotated showing called variants from multiple (up to 5 genomic BioSamples).
 
 ## Demonstration Data
 1. Halobacterium pH experiment. 
