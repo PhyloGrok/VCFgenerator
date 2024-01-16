@@ -4,8 +4,8 @@ Automated variant calling and Shiny dashboard for NextGen evolutionary genomics.
 Environment: Ubuntu 20.02 VM configured with required software packages described in OmicsVMconfigure (https://github.com/PhyloGrok/OmicsVMconfigure)
 
 ## Usage
-1. Gitclone VCFgenerator repository into your Ubuntu 20.02 Linux user/home directory.
-2. Run the command ```sudo python VCFgenerator/Python_Hub/Controller.py```
+1. Clone VCFgenerator repo ```git clone https://github.com/PhyloGrok/VCFgenerator``` in your Ubuntu 20.02 Linux user/home directory.
+2. Run ```sudo python VCFgenerator/Python_Hub/Controller.py```
 3. User will be prompted for 5 inputs, used to run the workflow:
 
 ![](/Workflow-Chart.png)
