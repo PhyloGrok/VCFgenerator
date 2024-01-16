@@ -22,9 +22,9 @@ Environment: Ubuntu 20.02 VM configured with required software packages describe
 2. NCBI BioProject PRJNA844510 (67 .fastq SRA files). "Halobacterium mutation acumulation lines. <em>testing for BGIseq and for scaled-up throughput</em><br>
 
 ## Future Goals
-1. Incorporate a mummer branch for the workflow.
-2. Comparative genomics Shiny app.
-3. Microbial human pathogen analysis.
+1. Incorporate a Mummer branch into the workflow.
+2. Peform Metagenomics and Comparative Genomics.
+3. Publish plots in a Shiny web app as a Science Gateway.
 
 ## Acknowledgements
 1. <em>Data Carpentry Genomics Workshop</em> (https://datacarpentry.org/genomics-workshop/) was the original template for the QC, alignment and variant calling steps.  Here we focused on a command-line implementation, with user specification, and high-throughput automated processing in Linux Ubuntu-based cloud vm.<br>
