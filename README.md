@@ -5,8 +5,9 @@ Environment: Ubuntu 20.02 VM configured with required software packages describe
 
 ## Usage
 1. Clone VCFgenerator repo ```git clone https://github.com/PhyloGrok/VCFgenerator``` in your Ubuntu 20.02 Linux user/home directory.
-2. Run ```sudo python VCFgenerator/Python_Hub/Controller.py```
-3. User will be prompted for 5 inputs, used to run the workflow:
+2. move ```cd VCFgenerator/Python_Hub```
+3. run ```sudo python Controller.py```
+4. User will be prompted for 5 inputs, used to run the workflow:
 
 ![](/Workflow-Chart.png)
 
