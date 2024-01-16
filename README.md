@@ -19,7 +19,7 @@ Environment: Ubuntu 20.02 VM configured with required software packages describe
 
 ## Demonstration Data
 1. NCBI BioProject PRJNA541441 (15 .fastq SRA files). "Iron and Acid Adapted Strains of Halobacterium sp. NRC-1 obtained by Experimental Evolution" <em>initial testing</em><br>
-2. NCBI BioProject PRJNA844510 (67 .fastq SRA files). Halobacterium mutation acumulation lines. <em>testing for BGIseq and for scaled-up throughput<em?<br>
+2. NCBI BioProject PRJNA844510 (67 .fastq SRA files). "Halobacterium mutation acumulation lines. <em>testing for BGIseq and for scaled-up throughput</em><br>
 
 ## Future Goals
 1. Incorporate a mummer branch for the workflow.
