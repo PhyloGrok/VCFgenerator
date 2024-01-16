@@ -26,8 +26,9 @@ Environment: Ubuntu 20.02 VM configured with required software packages describe
 2. 
 
 ## Acknowledgements
-1. The <em>Data Carpentry Genomics Workshop</em> (https://datacarpentry.org/genomics-workshop/) was the original template and inspiration for the Illumina QC, BWA assembly and variant calling steps of this workflow.  Implementation here has been modified for user specification of the dataset, high-throughput automated processing within a Linux Ubuntu-based command-line environment with many additonal upstream and downstream features for automation and data dashboard. <br>
-2. Lenski Long-Term E. coli Evolution (LTEE) experiment.  The strategy for analysis of genomic variants was inspired by Tenaillon et al. 2016 and other publications and content from the LTEE (https://lenski.mmg.msu.edu/ecoli/genomicsdat.html). 
+1. <em>Data Carpentry Genomics Workshop</em> (https://datacarpentry.org/genomics-workshop/) was the original template for the QC, alignment and variant calling steps.  Here we focused on a command-line implementation, with user specification, and high-throughput automated processing in Linux Ubuntu-based cloud vm.<br>
+2. <b>Lenski Long-Term E. coli Evolution (LTEE) experiment</b>.  The analysis of genomic variants follows the concept of Tenaillon et al. 2016 and other publications and content from the LTEE (https://lenski.mmg.msu.edu/ecoli/genomicsdat.html).
+3. See Citations.md for many additional citations and resources.
 
 ## Funding
 
