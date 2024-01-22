@@ -17,5 +17,5 @@ with open(f'{inputs[4]}/{inputs[0]}/{inputs[0]}.txt','r') as userfile:
 userfile.close()
 # Trimmomatic Script variant runs based on length of list 
 for a in range(len(srafile)):
-    subprocess.call(["bash","./thetrimmer1.sh", inputs[0],inputs[1],inputs[2],inputs[4], srafile[a]])
-subprocess.call(["bash","./fastqc1.sh", inputs[0],inputs[1],inputs[2],inputs[4]])
+    subprocess.call(["bash","./thetrimmer.sh", inputs[0],inputs[1],inputs[2],inputs[4], srafile[a]])
+subprocess.call(["bash","./fastqc.sh", inputs[0],inputs[1],inputs[2],inputs[4]])

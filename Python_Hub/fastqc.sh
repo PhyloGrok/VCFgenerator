@@ -6,4 +6,4 @@
 ## 2 = taxon ID
 ## 3 = file status 
 ## 4 = file path 
-fastqc $4/$1/fastq/trimmed/*fastq*
+fastqc $4/$1/fastq/trimmed/*fastq.gz

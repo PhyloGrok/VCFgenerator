@@ -1,0 +1,1 @@
+git clone -b halodev https://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@github.com/PhyloGrok/VCFgenerator.git

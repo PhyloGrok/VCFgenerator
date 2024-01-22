@@ -13,6 +13,6 @@ echo $2
 echo $3
 echo $4
 # Paired end fastq splitter 
-paste - - - - - - - - < $4/$1/fastq/${5}.fastq \ | tee >(cut -f 1-4 | tr "\t" "\n" > $4/$1/fastq/${5}_1.fastq) \ | cut -f 5-8 | tr "\t" "\n" > $4/$1/fastq/${5}_2.fastq)
+paste - - - - - - - - < $4/$1/fastq/untrimmed/${5}.fastq | tee >(cut -f 1-4 | tr "\t" "\n" > $4/$1/fastq/untrimmed/${5}_1.fastq) | cut -f 5-8 | tr "\t" "\n" > $4/$1/fastq/untrimmed/${5}_2.fastq
 # delete interleaved file after splitting 
-rm $4/$1/fastq/${5}.fastq 
+rm $4/$1/fastq/untrimmed/${5}.fastq 
