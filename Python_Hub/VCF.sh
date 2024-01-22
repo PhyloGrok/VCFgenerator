@@ -1,6 +1,6 @@
 #!/bin/bash
 #LJones, JRobinson, NLuu
-## User Inputs 
+## User Inputs
 ## 1 = directory name
 ## 2 = project ID
 ## 3 = taxon ID
@@ -34,7 +34,7 @@ name=$(basename ${x} _1.fastq.gz)
 bcftools mpileup -O b -o $4/$1/assembly/results/bcf/${name}_raw.bcf -f $4/$1/assembly/reference/ref_genome.fasta $4/$1/assembly/results/bam/${name}.aligned.sorted.bam
 done
 #rm -r ${4}/${1}/assembly/results/bam/
-## SNV Detection
+## SNP Detection
 for x in $4/$1/fastq/untrimmed/*_1.fastq.gz
 do
 name=$(basename ${x} _1.fastq.gz)

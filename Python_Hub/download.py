@@ -1,11 +1,11 @@
-##LJones, JRobinson, NLuu 
-# user inputs 
+##LJones, JRobinson, NLuu
+# user inputs
 ## 0 = directory name
 ## 1 = project ID
 ## 2 = taxon ID
 ## 3 = file status 
 ## 4 = file path 
-import subprocess 
+import subprocess
 import numpy as np
 # Import Variables from the Controller py script
 with open(f'inputs.txt','r') as userfile:
@@ -17,12 +17,12 @@ search = subprocess.call(["bash","./import.sh",inputs[0],inputs[1],inputs[2],inp
 with open(f'{inputs[4]}/{inputs[0]}/{inputs[0]}.txt','r') as userfile:
     srafile = userfile.read().splitlines()
 userfile.close()
-## Splitter check 
+## Splitter check
 yeslist = ['y','Y','yes']
 if inputs[3] in yeslist:
-## Splitting Paired-end fastq files 
-    zipping = subprocess.call(['bash','./zip1.sh',inputs[0],inputs[1],inputs[2],inputs[4]])
+## Splitting Paired-end fastq files
+    zipping = subprocess.call(['bash','./zip.sh',inputs[0],inputs[1],inputs[2],inputs[4]])
 else:
     for x in srafile:
         splitter = subprocess.call(['bash','./splitter.sh',inputs[0],inputs[1],inputs[2],inputs[4],x])
-    zipping = subprocess.call(['bash','./zip.sh',inputs[0],inputs[1],inputs[2],inputs[4]])       
+    zipping = subprocess.call(['bash','./zip.sh',inputs[0],inputs[1],inputs[2],inputs[4]])
