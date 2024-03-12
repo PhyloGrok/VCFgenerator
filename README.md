@@ -10,7 +10,7 @@ Environment: Ubuntu 20.02 VM configured with required software packages describe
 3. run ```sudo python Controller.py```
 4. User will be prompted for 5 inputs, used to run the workflow:
 
-![](/Workflow-Chart.png)
+![Workflow-Chart.png](https://github.com/PhyloGrok/VCFgenerator/blob/7ba909ee5451374408ad4b0378b1988a5688d9c3/Workflow-Chart.png)
 
 ## Workflow Description
 1. <b><u>download.py</u></b> Data Retrieval.  Downlaods reference genome and BioProject-linked SRA files base on user-provided data.  Currently works only with Illumina paired-end .fastq files, sequenced from genomics DNA data from a whole genome sequencing strategy.  Uses <em>ncbi EDirect, ncbi-datasets, and sra-toolkit</em> APIs.
