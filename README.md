@@ -1,5 +1,5 @@
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10552757.svg)](https://doi.org/10.5281/zenodo.10552757)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10552756.svg)](https://doi.org/10.5281/zenodo.10552756)
 # VCFgenerator
 Automated variant calling and Shiny dashboard for NextGen evolutionary genomics.<br>
 
