@@ -1,0 +1,11 @@
+# Ignore local data directories and heavy VCF datasets
+data/ 
+datasets/ 
+*.vcf 
+*.vcf.gz
+
+# Ignore local configuration and system artifacts
+.git/ 
+.DS_Store 
+__pycache__/ 
+*.pyc
