@@ -6,7 +6,11 @@ WORKDIR /app
 COPY --chown=$MAMBA_USER:$MAMBA_USER environment.yml /app/environment.yml
 # 4. Install all dependencies from the YAML file
 RUN micromamba install -y -n base -f /app/environment.yml && \ micromamba clean --all --yes
-# 5. Copy your newly merged python and bash scripts into the container
+# 5. --- THE SRA-TOOLS FIX --- This creates the configuration directory and writes a dummy configuration profile. It fakes the 
+# interactive configuration so fasterq-dump / prefetch work automatically.
+RUN mkdir -p /home/$MAMBA_USER/.ncbi && \ printf '/LIBS/GUID = "vcfgenerator-container-guid-001"\n' > 
+    /home/$MAMBA_USER/.ncbi/user-settings.mkfg
+# 6. Copy your newly merged python and bash scripts into the container
 COPY --chown=$MAMBA_USER:$MAMBA_USER . /app/
-# 6. Ensure the main execution environment is active by default
+# 7. Ensure the main execution environment is active by default
 ARG MAMBA_DOCKERFILE_ACTIVATE=1
