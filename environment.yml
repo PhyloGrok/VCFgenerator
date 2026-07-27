@@ -15,6 +15,15 @@ dependencies:
   - openjdk=11
   - fastqc=0.12.1
   - trimmomatic=0.39
+  - r-base=4.3.3
+  - r-tidyverse=2.0.0
+  - r-data.table=1.15.4
+  - r-stringr=1.15.1
+  - r-biocmanager=1.30.22
+  - r-circlize=0.4.16
+  - bioconductor-genomicranges=1.54.0
+  - bioconductor-enrichedheatmap=1.32.0
+  - bioconductor-repitools=1.48.0
   - pip
   - pip:
     - pandas==2.2.2
