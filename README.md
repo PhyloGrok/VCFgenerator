@@ -1,9 +1,9 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10552756.svg)](https://doi.org/10.5281/zenodo.10552756)
 # VCFgenerator
-Automated variant calling and Shiny dashboard for NextGen evolutionary genomics.<br>
+Automated variant calling from NCBI SRA Illumina microbial WGS raw sequence .fastq data.<br>
 
-Environment: Ubuntu 20.02 VM configured with required software packages described in OmicsVMconfigure (https://github.com/PhyloGrok/OmicsVMconfigure)
+Environment: Dockerized container running in Ubuntu 22 VM
 
 ## Usage
 1. Clone VCFgenerator repo ```git clone https://github.com/PhyloGrok/VCFgenerator``` in your Ubuntu 20.02 Linux user/home directory.
