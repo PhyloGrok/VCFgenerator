@@ -6,30 +6,17 @@ Automated variant calling from NCBI SRA Illumina microbial WGS raw sequence .fas
 Environment: Dockerized container running in Ubuntu 22 VM
 
 ## Usage
-1. Clone VCFgenerator repo ```git clone https://github.com/PhyloGrok/VCFgenerator``` in your Ubuntu 20.02 Linux user/home directory.
-2. move ```cd VCFgenerator/Python_Hub```
-3. run ```sudo python Controller.py```
-4. User will be prompted for 5 inputs, used to run the workflow:
-
-<img src="https://github.com/PhyloGrok/VCFgenerator/blob/7ba909ee5451374408ad4b0378b1988a5688d9c3/Workflow-Chart.png" alt="Workflow-Chart" title="Workflow-Chart">
 
 ## Workflow Description
-1. <b><u>download.py</u></b> Data Retrieval.  Downlaods reference genome and BioProject-linked SRA files base on user-provided data.  Currently works only with Illumina paired-end .fastq files, sequenced from genomics DNA data from a whole genome sequencing strategy.  Uses <em>ncbi EDirect, ncbi-datasets, and sra-toolkit</em> APIs.
-2. <b>trimmomatic.py</b> Data QC - Runs <em>trimmomatic</em> and <em>fastqc</em> on the .fastq sra files.
-3. <b>variants.py</b> Assembly and Variant Calling - Performs alignment of .fastq sequences to the reference genome using <em>bwa</em>.  Performed variant calling with <em>SAMtools</em> and <em>BCFtools</em>, generating variant calling format (.vcf) files as output.
-4. <b>annotations.py</b> VCF annotation - Annotates the .vcf files using <em>SNPeff</em> and reference genome .gff/.gtf annotation files. 
-5. Shiny Dashboard (nonfunctional, in development) - Transfers annotated .vcf data to a <em>SQLite</em> database, imports into an R dataframe and plots genomes in <em>R Shiny</em> dashboard with a stacked barplot of mutation types by sample, and displays a circos-style plot annotated showing called variants from multiple (up to 5 genomic BioSamples).
+1. <b>Data Retrieval.</b> Uses EDirect, ncbi-datasets, and sra-toolkit to download reference genomes and .fastq data files by user-defined NCBI taxonomy ID.
+2. <b>Sequence QC</b> Runs <em>trimmomatic</em> and <em>fastqc</em> on the downloaded .fastq files.
+3. <b>variant Calling</b> Aligns .fastq sequences to the reference genome using <em>bwa</em>. Standard variant calling with <em>SAMtools</em> and <em>BCFtools</em>, generating variant calling format (.vcf) files as output.
+4. <b>Annotation</b> Annotates .vcf files using <em>SNPeff</em> and reference genome standard .gff/.gtf annotation files. 
 
 ## Demonstration Data
-1. NCBI BioProject PRJNA541441 (15 .fastq SRA files). "Iron and Acid Adapted Strains of Halobacterium sp. NRC-1 obtained by Experimental Evolution" <em>initial testing</em><br>
-2. NCBI BioProject PRJNA844510 (67 .fastq SRA files). "Halobacterium mutation acumulation lines. <em>testing for BGIseq and for scaled-up throughput</em><br>
+1. 300+ Annotated VCF's accessioned in Zenodo Repository.
 
-## Future Goals
-1. Incorporate a Mummer branch into the workflow.
-2. Peform Metagenomics and Comparative Genomics.
-3. Publish plots in a Shiny web app as a Science Gateway.
-
-## Acknowledgements
+## Inspiration and Acknowledgement
 1. <em>Data Carpentry Genomics Workshop</em> (https://datacarpentry.org/genomics-workshop/) was the original template for the QC, alignment and variant calling steps.  Here we focused on a command-line implementation, with user specification, and high-throughput automated processing in Linux Ubuntu-based cloud vm.<br>
 2. <b>Lenski Long-Term E. coli Evolution (LTEE) experiment</b>.  The analysis of genomic variants follows the concept of Tenaillon et al. 2016 and other publications and content from the LTEE (https://lenski.mmg.msu.edu/ecoli/genomicsdat.html).
 3. See Citations.md for many additional citations and resources.
