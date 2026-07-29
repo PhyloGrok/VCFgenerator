@@ -15,5 +15,10 @@ dependencies:
   - bcftools=1.21
   - snpeff=5.2
   - openjdk=11
-  - r-base=4.3.3
   - pip
+  - r-base=4.3.3
+  - r-tidyverse=2.0.0
+  - r-data.table=1.15.4
+  - r-stringr=1.5.1
+  - r-biocmanager=1.30.22
+  - r-circlize=0.4.16
