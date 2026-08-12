@@ -42,7 +42,7 @@ mkdir -m777 "${BASE_DATA_DIR}/VCF.projects/$txid/results/vcf"
 datasets download genome taxon $txid --reference --include genome,rna,protein,cds,gff3,gtf,gbff,seq-report --filename ${BASE_DATA_DIR}/VCF.projects/$txid/data/$txid.zip
 
 
-unzip ${BASE_DATA_DIR}/VCF.projects/$txid/data/$txid.zip -d ~/VCF.projects/$txid/data/
+unzip ${BASE_DATA_DIR}/VCF.projects/$txid/data/$txid.zip -d ${BASE_DATA_DIR}/VCF.projects/$txid/data/
 #cd /media/volume/sdc/S25/data/untrimmed_fastq
 
 esearch -db sra -query ""txid$txid"[Orgn] AND "genomic"[Source] AND "paired"[Layout] AND "illumina"[Platform] AND "wgs"[Strategy] AND filetype "fastq"[Filter] AND strategy "genome"[Filter]" | efetch -format docsum | xtract -pattern Runs -ACC @acc -element "&ACC" > ${BASE_DATA_DIR}/VCF.projects/$txid/data/SraList_$txid.txt
