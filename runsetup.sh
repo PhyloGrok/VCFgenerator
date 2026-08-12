@@ -33,10 +33,16 @@ echo "Data Storage: $HOST_STORAGE_PATH"
 echo "=========================================================="
 echo ""
 
+
+# NEW: Prompt for TaxID on the host side
+read -rp "Enter your Taxonomy ID (TaxID): " HOST_TXID
+
 # 3. Launch the container with dual volume mounts and the runtime environment variable
 docker run --rm \
+	--user "$(id -u):$(id -g)" \
 	-v "$REPO_DIR":/app \
 	-v "$HOST_STORAGE_PATH":/app/data \
 	-e DATA_DIR="/app/data" \
+	-e TAXID="$HOST_TXID" \
 	vcfgenerator:latest \
   bash /app/setup.sh

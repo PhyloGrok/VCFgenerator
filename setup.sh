@@ -1,13 +1,15 @@
 #!/bin/bash
 
-read -p "Enter your TaxID: " txid
+#read -p "Enter your TaxID: " txid
 #read -p "Enter your filepath (storage_directory/project_directory): " filepath 
 
-echo $txid
+#echo $txid
 #echo $filepath
 
 # Read DATA_DIR from environment, default to /app/data if empty
-BASE_DATA_DIR="${DATA_DIR}:-/app/data}"
+BASE_DATA_DIR="${DATA_DIR:-/app/data}"
+
+txid="$TAXID"
 
 
 # Build the directory tree paths
@@ -43,7 +45,7 @@ datasets download genome taxon $txid --reference --include genome,rna,protein,cd
 unzip ${BASE_DATA_DIR}/VCF.projects/$txid/data/$txid.zip -d ~/VCF.projects/$txid/data/
 #cd /media/volume/sdc/S25/data/untrimmed_fastq
 
-esearch -db sra -query ""txid$txid"[Orgn] AND "genomic"[Source] AND "paired"[Layout] AND "illumina"[Platform] AND "wgs"[Strategy] AND filetype "fastq"[Filter] AND strategy "genome"[Filter]" | efetch -format docsum | xtract -pattern Runs -ACC @acc -element "&ACC" > ~/VCF.projects/$txid/data/SraList_$txid.txt
+esearch -db sra -query ""txid$txid"[Orgn] AND "genomic"[Source] AND "paired"[Layout] AND "illumina"[Platform] AND "wgs"[Strategy] AND filetype "fastq"[Filter] AND strategy "genome"[Filter]" | efetch -format docsum | xtract -pattern Runs -ACC @acc -element "&ACC" > ${BASE_DATA_DIR}/VCF.projects/$txid/data/SraList_$txid.txt
 
 prefetch --option-file ${BASE_DATA_DIR}/VCF.projects/$txid/data/SraList_$txid.txt -O ${BASE_DATA_DIR}/VCF.projects/$txid/data/sra/
 fasterq-dump ${BASE_DATA_DIR}/VCF.projects/$txid/data/sra/SRR* -O ${BASE_DATA_DIR}/VCF.projects/$txid/data/untrimmed_fastq/
