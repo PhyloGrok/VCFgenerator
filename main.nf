@@ -11,8 +11,8 @@ process RUN_SETUP {
 	container 'vcfgenerator:latest'
     
 	output: 
-	path "VCF.projects/${params.taxid}/raw_inputs/*", emit: raw_fastq 
-	
+	path "${params.datadir}/VCF.projects/${params.taxid}/data/**/*", emit: setup_data
+
 	script: 
 	""" 
 	export DATA_DIR="${params.data_dir}" 
