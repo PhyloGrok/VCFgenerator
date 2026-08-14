@@ -11,8 +11,9 @@ process RUN_SETUP {
 	container 'vcfgenerator:latest'
     
 	output: 
-	path "${params.datadir}/VCF.projects/${params.taxid}/data/**/*", emit: setup_data
-
+	path "${params.datadir}/VCF.projects/${params.taxid}/data/ncbi_dataset/**/*", emit: reference_data
+	path "${params.datadir}/VCF.projects/${params.taxid}/data/untrimmed_fastq/*", emit: untrimmed_fastq
+	
 	script: 
 	""" 
 	export DATA_DIR="${params.data_dir}" 
@@ -28,10 +29,10 @@ process RUN_TRIMQC {
 	container 'vcfgenerator:latest'
     
 	input: 
-	path fastq_files
+	path untrimmed_fastq
     
 	output: 
-	path "VCF.projects/${params.taxid}/trimmed/*", emit: trimmed_fastq 
+	path "${params.datadir}/VCF.projects/${params.taxid}/data/trimmed_fastq/*", emit: trimmed_fastq 
 
 	script: 
 	""" 
@@ -49,7 +50,7 @@ process RUN_VCF {
 	path trimmed_files
     
 	output: 
-	path "VCF.projects/${params.taxid}/variants/*.vcf", emit: raw_vcf 
+	path "VCF.projects/${params.taxid}/results/vcf/*", emit: final_vcf
 
 	script: 
 	""" 
@@ -78,8 +79,8 @@ process RUN_ANNOTATION {
 workflow {
 	// Connect your existing shell scripts into a continuous reactive stream
 	setup_ch = RUN_SETUP() 
-	trim_ch = RUN_TRIMQC(setup_ch.raw_fastq) 
+	trim_ch = RUN_TRIMQC(setup_ch.untrimmed_fastq) 
 	vcf_ch = RUN_VCF(trim_ch.trimmed_fastq) 
-	RUN_ANNOTATION(vcf_ch.raw_vcf)
+	RUN_ANNOTATION(vcf_ch.final_vcf)
 }
 
