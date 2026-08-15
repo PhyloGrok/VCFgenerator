@@ -1,28 +1,31 @@
 #!/bin/bash
-read -p "Enter your TaxID:" txid
-echo $txid
 
+#read -p "Enter your TaxID:" txid
+#echo $txid
 
-bwa index ~/VCF.projects/$txid/data/ref_genome/ncbi_dataset/data/GC*/GC*.fna
+BASE_DATA_DIR="${DATA_DIR:-/app/data}"
+txid="$TAXID"
 
-for infile in ~/VCF.projects/$txid/data/trimmed_fastq/*_1.trim.fastq
+bwa index ${BASE_DATA_DIR}/VCF.projects/$txid/data/ncbi_dataset/data/GC*/GC*.fna
+
+for infile in ${BASE_DATA_DIR}/VCF.projects/$txid/data/trimmed_fastq/*_1.trim.fastq
 	do
 	base=$(basename ${infile} _1.trim.fastq)
 	echo ${base}
-	bwa mem ~/VCF.projects/$txid/data/ref_genome/ncbi_dataset/data/GC*/GC*.fna \
-	~/VCF.projects/$txid/data/trimmed_fastq/${base}_1.trim.fastq \
-	~/VCF.projects/$txid/data/trimmed_fastq/${base}_2.trim.fastq > ~/VCF.projects/$txid/results/sam/${base}.aligned.sam
+	bwa mem ${BASE_DATA_DIR}/VCF.projects/$txid/data/ncbi_dataset/data/GC*/GC*.fna \
+	${BASE_DATA_DIR}/VCF.projects/$txid/data/trimmed_fastq/${base}_1.trim.fastq \
+	${BASE_DATA_DIR}/VCF.projects/$txid/data/trimmed_fastq/${base}_2.trim.fastq > ${BASE_DATA_DIR}/VCF.projects/$txid/results/sam/${base}.aligned.sam
 
-	samtools view -S -b ~/VCF.projects/$txid/results/sam/${base}.aligned.sam > ~/VCF.projects/$txid/results/bam/${base}.aligned.bam
+	samtools view -S -b ${BASE_DATA_DIR}/VCF.projects/$txid/results/sam/${base}.aligned.sam > ${BASE_DATA_DIR}/VCF.projects/$txid/results/bam/${base}.aligned.bam
 
-	samtools sort -o ~/VCF.projects/$txid/results/bam/${base}.aligned.sorted.bam ~/VCF.projects/$txid/results/bam/${base}.aligned.bam
+	samtools sort -o ${BASE_DATA_DIR}/VCF.projects/$txid/results/bam/${base}.aligned.sorted.bam ${BASE_DATA_DIR}/VCF.projects/$txid/results/bam/${base}.aligned.bam
 
-	samtools flagstat ~/VCF.projects/$txid/results/bam/${base}.aligned.sorted.bam
+	samtools flagstat ${BASE_DATA_DIR}/VCF.projects/$txid/results/bam/${base}.aligned.sorted.bam
 
-	bcftools mpileup -O b -o ~/VCF.projects/$txid/results/bcf/${base}_raw.bcf \
-	-f ~/VCF.projects/$txid/data/ref_genome/ncbi_dataset/data/GC*/GC*.fna ~/VCF.projects/$txid/results/bam/${base}.aligned.sorted.bam
+	bcftools mpileup -O b -o ${BASE_DATA_DIR}/VCF.projects/$txid/results/bcf/${base}_raw.bcf \
+	-f ${BASE_DATA_DIR}/VCF.projects/$txid/data/ncbi_dataset/data/GC*/GC*.fna ${BASE_DATA_DIR}/VCF.projects/$txid/results/bam/${base}.aligned.sorted.bam
 
-	bcftools call --ploidy 1 -m -v -o ~/VCF.projects/$txid/results/vcf/${base}_variants.vcf ~/VCF.projects/$txid/results/bcf/${base}_raw.bcf
+	bcftools call --ploidy 1 -m -v -o ${BASE_DATA_DIR}/VCF.projects/$txid/results/vcf/${base}_variants.vcf ${BASE_DATA_DIR}/VCF.projects/$txid/results/bcf/${base}_raw.bcf
 
-	vcfutils.pl varFilter ~/VCF.projects/$txid/results/vcf/${base}_variants.vcf > ~/VCF.projects/$txid/results/vcf/${base}_final_variants.vcf
+	vcfutils.pl varFilter ${BASE_DATA_DIR}/VCF.projects/$txid/results/vcf/${base}_variants.vcf > ${BASE_DATA_DIR}/VCF.projects/$txid/results/vcf/${base}_final_variants.vcf
 	done
