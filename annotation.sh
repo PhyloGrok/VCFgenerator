@@ -71,7 +71,6 @@ SNPEFF_PATH="$RESOURCE_PATH/SnpEff"
 
 mkdir -p "$SNPEFF_PATH"
 
-
 # Copy the master config file to our local project workspace
 cp "$SNPEFFDIR/snpEff.config" "$SNPEFF_PATH/snpEff.config"
 
