@@ -10,7 +10,7 @@ txid="$TAXID"
 echo "Processing Annotation for TaxID: $txid"
 
 # Define base project directories
-BASE_DIR=BASE_DATA_DIR
+BASE_DIR="$BASE_DATA_DIR/VCF.projects/$txid"
 RESULT_PATH="$BASE_DIR/results"
 RESOURCE_PATH="$BASE_DIR/resources"
 
