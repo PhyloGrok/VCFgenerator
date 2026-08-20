@@ -30,7 +30,7 @@ For a fresh Ubuntu 22/Jetstream2 VM, initialize your environment:
 sudo apt-get update && sudo apt-get install -y openjdk-17-jre-headless
 
 # Install Nextflow globally
-curl -s https://nextflow.io | bash sudo mv nextflow /usr/local/bin/ 
+curl -s https://get.nextflow.io | bash sudo mv nextflow /usr/local/bin/
 ```
 
 ## Production Execution
