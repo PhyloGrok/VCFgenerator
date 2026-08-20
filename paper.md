@@ -1,5 +1,5 @@
---- 
-title: 'VCFgenerator: An automated pipeline for high-througput VCF generation from microbial WGS Illumina .fastq files' 
+---
+title: 'VCFgenerator: An automated pipeline for high-througput VCF generation from microbial WGS Illumina .fastq files'
 tags:
 	- Bash
 	- genome variant calling pipeline
