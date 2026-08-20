@@ -28,20 +28,6 @@ This work used Jetstream at Indiana Universery/Texas Advanced Computing Center (
 
 UMBC Translational Life Science Technology (TLST) student interns Lloyd Jones III, Nhi Luu, and Jan Le supported by <em>Merck Data Science Fellowship for Observational Research Program</em> and the <em>UMBC College of Natural and Mathematical Sciences</em></b>.  Lloyd Jones III developed the variant calling workflow framework and workflow integration. Nhi Luu developed the annotation scripts and R-Shiny framework and integration. Jan Le prepared the "Iron and Acid Adaptation" analysis, developed EDirect scripts, and troubleshooted throughout the workflow.  Additionally, TLST student Gina Hwang contributed to the MUMMER branch of the workflow.
 
-## Citations
-
-Erin Alison Becker, Tracy Teal, François Michonneau, Maneesha Sane, Taylor Reiter, Jason Williams, et al. (2019, June). 
-datacarpentry/genomics-workshop: Data Carpentry: Genomics Workshop Overview, June 2019 (Version v2019.06.1). 
-Zenodo. http://doi.org/10.5281/zenodo.3260309
-
-David Y. Hancock, Jeremy Fischer, John Michael Lowe, Winona Snapp-Childs, Marlon Pierce, Suresh Marru, J. Eric Coulter, Matthew Vaughn, Brian Beck, Nirav Merchant, Edwin Skidmore, and Gwen Jacobs. 2021. “Jetstream2: Accelerating cloud computing via Jetstream.” In Practice and Experience in Advanced Research Computing (PEARC ’21). Association for Computing Machinery, New York, NY, USA, Article 11, 1–8. DOI: https://doi.org/10.1145/3437359.3465565
-
-Stewart, C.A., Cockerill, T.M., Foster, I., Hancock, D., Merchant, N., Skidmore, E., Stanzione, D., Taylor, J., Tuecke, S., Turner, G., Vaughn, M., and Gaffney, N.I., “Jetstream: a self-provisioned, scalable science and engineering cloud environment.” 2015, In Proceedings of the 2015 XSEDE Conference: Scientific Advancements Enabled by Enhanced Cyberinfrastructure. St. Louis, Missouri. ACM: 2792774. p. 1-8. DOI: https://dx.doi.org/10.1145/2792745.2792774
-
-Tenaillon O, Barrick JE, Ribeck N, et al. Tempo and mode of genome evolution in a 50,000-generation experiment. Nature. 2016;536(7615):165-170. doi:10.1038/nature18959
-
-Towns, J, and T Cockerill, M Dahan, I Foster, K Gaither, A Grimshaw, V Hazlewood, S Lathrop, D Lifka, GD Peterson, R Roskies, JR Scott. “XSEDE: Accelerating Scientific Discovery”, Computing in Science & Engineering, vol.16, no. 5, pp. 62-74, Sept.-Oct. 2014, doi:10.1109/MCSE.2014.80
-
 ## Prerequisites
 
 Before running the pipeline, ensure your host system or cloud instance has the following installed:
