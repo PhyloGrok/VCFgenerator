@@ -1,6 +1,6 @@
 --- 
 title: 'VCFgenerator: An automated pipeline for high-througput VCF generation from microbial WGS Illumina .fastq files' 
-tags: 
+tags:
 	- Bash
 	- genome variant calling pipeline
 	- Burrows-Wheeler Aligner
@@ -42,11 +42,11 @@ bibliography: paper.bib
 # Use cases
 
 # Acknowledgements
-This work used Jetstream2 at Indiana University (IU) through research allocation <b>BIO220099</b> "Computational workflows for analysis of microbial halophile genomes and microbiomes", from the Advanced Cyberinfrastructure 
+This work is a product of the research allocation <b>BIO220099</b> "Computational workflows for analysis of microbial halophile genomes and microbiomes", from the Advanced Cyberinfrastructure 
 Coordination Ecosystem: Services & Support (ACCESS) program, which is supported by National Science Foundation grants #2138259, #2138286, #2138307, #2137603, and #2138296. 
 
-This work used Jetstream at Indiana University/Texas Advanced Computing Center (IU/TACC) through research startup allocation <b>BIO210100</b> from the Extreme Science and Engineering Discovery Environment (XSEDE), which was supported by National Science Foundation grant number #1548562. 
+This work is a product of the research startup allocation <b>BIO210100</b> "Comparative and functional genomics of Halobacterium: An automated meta-analysis and data science approach." from the Extreme Science and Engineering Discovery Environment (XSEDE), which was supported by National Science Foundation grant number #1548562. 
 
-This work used Jetstream at Indiana Universityy/Texas Advanced Computing Center (IU/TACC) through educational allocation <b>MCB200044</b> from the Extreme Science and Engineering Discovery Environment (XSEDE), which was supported by National Science Foundation grant number #1548562.
+This work is a product of the educational allocation <b>MCB200044</b> "Bioinformatics Training for Applications in Translational and Molecular Biosciences" from the Extreme Science and Engineering Discovery Environment (XSEDE), which was supported by National Science Foundation grant number #1548562.
 
 UMBC Translational Life Science Technology (TLST) program student interns Lloyd Jones III, Nhi Luu, Jan Le, Rachel Chan, and Elaysha Hall were supported by <em>Merck Data Science Fellowship for Observational Research Program</em> funds distributed through <em>UMBC College of Natural and Mathematical Sciences</em></b>.
