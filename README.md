@@ -3,9 +3,6 @@
 # VCFgenerator
 Automated variant calling from NCBI SRA Illumina microbial WGS raw sequence .fastq data.<br>
 
-Environment: Dockerized container running in Ubuntu 22 VM
-
-## Usage
 
 ## Workflow Description
 1. <b>Data Retrieval.</b> Uses EDirect, ncbi-datasets, and sra-toolkit to download reference genomes and .fastq data files by user-defined NCBI taxonomy ID.
@@ -45,3 +42,26 @@ Tenaillon O, Barrick JE, Ribeck N, et al. Tempo and mode of genome evolution in 
 
 Towns, J, and T Cockerill, M Dahan, I Foster, K Gaither, A Grimshaw, V Hazlewood, S Lathrop, D Lifka, GD Peterson, R Roskies, JR Scott. “XSEDE: Accelerating Scientific Discovery”, Computing in Science & Engineering, vol.16, no. 5, pp. 62-74, Sept.-Oct. 2014, doi:10.1109/MCSE.2014.80
 
+## Prerequisites
+
+Before running the pipeline, ensure your host system or cloud instance has the following installed:
+ 
+1. **Docker** (v20.10+ recommended)
+2. **Java 17 or later** (Required to run the Nextflow orchestrator)
+
+### Host System Setup
+
+For a fresh Ubuntu 22/Jetstream2 VM, initialize your environment: 
+
+```bash
+# Install Java 17
+sudo apt-get update && sudo apt-get install -y openjdk-17-jre-headless
+
+# Install Nextflow globally
+curl -s https://nextflow.io | bash sudo mv nextflow /usr/local/bin/ 
+```
+
+## Production Execution
+Once your local system prerequisites are ready and your Docker image is built (`docker build -t vcfgenerator:latest .`), launch the complete 
+end-to-end sequential workflow using our interactive launcher script:
+```bash ./run_vcf_pipeline.sh ```
