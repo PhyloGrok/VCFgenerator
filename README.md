@@ -4,17 +4,16 @@
 Automated variant calling from NCBI SRA Illumina microbial WGS raw sequence .fastq data.<br>
 *For citations and acknowledgements please see paper.md
 
-## Workflow Description
-1. <b>Data Retrieval.</b> Uses EDirect, ncbi-datasets, and sra-toolkit to download reference genomes and .fastq data files by user-defined NCBI taxonomy ID.
-2. <b>Sequence QC</b> Runs <em>trimmomatic</em> and <em>fastqc</em> on the downloaded .fastq files.
-3. <b>variant Calling</b> Aligns .fastq sequences to the reference genome using <em>bwa</em>. Standard variant calling with <em>SAMtools</em> and <em>BCFtools</em>, generating variant calling format (.vcf) files as output.
-4. <b>Annotation</b> Annotates .vcf files using <em>SNPeff</em> and reference genome standard .gff/.gtf annotation files. 
+## Workflow
+1. <b>Data Retrieval.</b> Uses <em>EDirect</em>, <em>ncbi-datasets</em>, and <em>sra-toolkit</em> to download reference genome data and .fastq data files by user-defined NCBI taxonomy ID.
+2. <b>Sequence QC.</b> Runs <em>trimmomatic</em> and <em>fastqc</em> on the downloaded .fastq files.
+3. <b>variant Calling</b> Aligns .fastq sequences to the reference genome using <em>bwa</em>. Variant calling with <em>SAMtools</em> and <em>BCFtools</em>, generating variant calling format (.vcf) files as output.
+4. <b>Annotation</b> Annotates .vcf files using <em>SNPeff</em> and ncbi reference genome standard .gff/.gtf annotation files. 
 
 ## Associated Dataset
 1. 300+ Annotated VCF's accessioned in Zenodo Repository.
 
 ## Prerequisites
-
 Before running the pipeline, ensure your host system or cloud instance has the following installed:
  
 1. **Docker** (v20.10+ recommended)
@@ -22,7 +21,6 @@ Before running the pipeline, ensure your host system or cloud instance has the f
 3. **Nextflow 26 or later** (Required workflow manager)
 
 ### Host System Setup
-
 For a fresh Ubuntu 22/Jetstream2 VM, initialize your environment: 
 
 ```bash
