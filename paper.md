@@ -32,9 +32,21 @@ bibliography: paper.bib
 ---
 
 # Summary
+
 # Statement of need
+
 # State of the field
+
 # Mathematics
+
 # Use cases
+
 # Acknowledgements
-# References
+This work used Jetstream2 at Indiana University (IU) through research allocation <b>BIO220099</b> "Computational workflows for analysis of microbial halophile genomes and microbiomes", from the Advanced Cyberinfrastructure 
+Coordination Ecosystem: Services & Support (ACCESS) program, which is supported by National Science Foundation grants #2138259, #2138286, #2138307, #2137603, and #2138296. 
+
+This work used Jetstream at Indiana University/Texas Advanced Computing Center (IU/TACC) through research startup allocation <b>BIO210100</b> from the Extreme Science and Engineering Discovery Environment (XSEDE), which was supported by National Science Foundation grant number #1548562. 
+
+This work used Jetstream at Indiana Universityy/Texas Advanced Computing Center (IU/TACC) through educational allocation <b>MCB200044</b> from the Extreme Science and Engineering Discovery Environment (XSEDE), which was supported by National Science Foundation grant number #1548562.
+
+UMBC Translational Life Science Technology (TLST) program student interns Lloyd Jones III, Nhi Luu, Jan Le, Rachel Chan, and Elaysha Hall were supported by <em>Merck Data Science Fellowship for Observational Research Program</em> funds distributed through <em>UMBC College of Natural and Mathematical Sciences</em></b>.
