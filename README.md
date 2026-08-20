@@ -7,8 +7,8 @@ Automated variant calling from NCBI SRA Illumina microbial WGS raw sequence .fas
 ## Workflow
 1. <b>Data Retrieval.</b> Uses <em>EDirect</em>, <em>ncbi-datasets</em>, and <em>sra-toolkit</em> to download reference genome data and .fastq data files by user-defined NCBI taxonomy ID.
 2. <b>Sequence QC.</b> Runs <em>trimmomatic</em> and <em>fastqc</em> on the downloaded .fastq files.
-3. <b>variant Calling</b> Aligns .fastq sequences to the reference genome using <em>bwa</em>. Variant calling with <em>SAMtools</em> and <em>BCFtools</em>, generating variant calling format (.vcf) files as output.
-4. <b>Annotation</b> Annotates .vcf files using <em>SNPeff</em> and ncbi reference genome standard .gff/.gtf annotation files. 
+3. <b>variant Calling.</b> Aligns .fastq sequences to the reference genome using <em>bwa</em>. Variant calling with <em>SAMtools</em> and <em>BCFtools</em>, generating variant calling format (.vcf) files as output.
+4. <b>Annotation.</b> Annotates .vcf files using <em>SNPeff</em> and ncbi reference genome standard .gff/.gtf annotation files. 
 
 ## Associated Dataset
 1. 300+ Annotated VCF's accessioned in Zenodo Repository.
