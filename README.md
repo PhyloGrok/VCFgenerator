@@ -19,6 +19,7 @@ Before running the pipeline, ensure your host system or cloud instance has the f
  
 1. **Docker** (v20.10+ recommended)
 2. **Java 17 or later** (Required to run the Nextflow orchestrator)
+3. **Nextflow 26 or later** (Required workflow manager)
 
 ### Host System Setup
 
