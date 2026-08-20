@@ -3,20 +3,14 @@
 # VCFgenerator
 Automated variant calling from NCBI SRA Illumina microbial WGS raw sequence .fastq data.<br>
 
-
 ## Workflow Description
 1. <b>Data Retrieval.</b> Uses EDirect, ncbi-datasets, and sra-toolkit to download reference genomes and .fastq data files by user-defined NCBI taxonomy ID.
 2. <b>Sequence QC</b> Runs <em>trimmomatic</em> and <em>fastqc</em> on the downloaded .fastq files.
 3. <b>variant Calling</b> Aligns .fastq sequences to the reference genome using <em>bwa</em>. Standard variant calling with <em>SAMtools</em> and <em>BCFtools</em>, generating variant calling format (.vcf) files as output.
 4. <b>Annotation</b> Annotates .vcf files using <em>SNPeff</em> and reference genome standard .gff/.gtf annotation files. 
 
-## Demonstration Data
+## Associated Dataset
 1. 300+ Annotated VCF's accessioned in Zenodo Repository.
-
-## Inspiration and Acknowledgement
-1. <em>Data Carpentry Genomics Workshop</em> (https://datacarpentry.org/genomics-workshop/) was the original template for the QC, alignment and variant calling steps.  Here we focused on a command-line implementation, with user specification, and high-throughput automated processing in Linux Ubuntu-based cloud vm.<br>
-2. <b>Lenski Long-Term E. coli Evolution (LTEE) experiment</b>.  The analysis of genomic variants follows the concept of Tenaillon et al. 2016 and other publications and content from the LTEE (https://lenski.mmg.msu.edu/ecoli/genomicsdat.html).
-3. See Citations.md for many additional citations and resources.
 
 ## Funding
 
