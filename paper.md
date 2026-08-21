@@ -33,17 +33,17 @@ date: 28 July 2026
 bibliography: paper.bib 
 ---
 
-# Summary
+## Summary
 
-# Statement of need
+## Statement of need
 
-# State of the field
+## State of the field
 
-# Mathematics
+## Research Impact Statement
 
-# Use cases
+## AI Usage Disclosure
 
-# Acknowledgements
+## Acknowledgements
 This work is a product of the research allocation <b>BIO220099</b> "Computational workflows for analysis of microbial halophile genomes and microbiomes", from the Advanced Cyberinfrastructure 
 Coordination Ecosystem: Services & Support (ACCESS) program, which is supported by National Science Foundation grants #2138259, #2138286, #2138307, #2137603, and #2138296. 
 
